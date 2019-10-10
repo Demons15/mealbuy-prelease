@@ -1,0 +1,2 @@
+include ':app', ':mealbuy'
+rootProject.name='MealBuyDemo'
