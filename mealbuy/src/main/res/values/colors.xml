@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FCFCFC</color>
+    <!--主色调-->
+    <!--半透明-->
+    <!--半透明-->
+    <!--半透明-->
+    <!--半透明-->
+    <!--透明-->
+    <color name="white">#FFFFFFFF</color>
+    <!--侧滑删除的字的颜色，按下-->
+    <!--侧滑删除的字的颜色，正常-->
+
+    <!--红色圆点-->
+
+    <color name="color_333333">#333333</color>
+    <color name="black">#000000</color>
+    <color name="color_999999">#999999</color>
+
+    <!--灰白色背景-->
+
+    <!-- 按钮颜色 白色系 -->
+
+    <!--按钮未点击-->
+    <!--按钮已点击-->
+
+    <color name="main_text_color">#485465</color>
+
+
+</resources>
