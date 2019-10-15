@@ -7,5 +7,48 @@
 
     <string name="pay_result_tip">这个界面用于显示第三方app通过微信支付的结果</string>
 
-
+    <string name="meal_info">套餐信息</string>
+    <string name="call_message">短信</string>
+    <string name="intelligent_diagnosis">智能诊断</string>
+    <string name="search_message">搜索短信</string>
+    <string name="receive_message">收件箱</string>
+    <string name="send_message">发件箱</string>
+    <string name="all_select">全选</string>
+    <string name="delete">删除</string>
+    <string name="write_message">写信息</string>
+    <string name="real_name_authentication">实名认证</string>
+    <string name="wait_result">等待结果…</string>
+    <string name="have_open_call_function">已开启通话功能</string>
+    <string name="have_open_net_function">已开启上网功能</string>
+    <string name="is_have_using_meal">是否有使用套餐</string>
+    <string name="activation_state">激活状态</string>
+    <string name="is_it_a_valid_card">是否是有效卡</string>
+    <string name="diagnostic_recommendations">诊断建议</string>
+    <string name="detection_result">检测结果：</string>
+    <string name="no_use">暂未使用</string>
+    <string name="package_purchase">套餐购买</string>
+    <string name="flow_overlay_packet">流量叠加</string>
+    <string name="voice_overlay_packet">语音叠加</string>
+    <string name="current_card_number">当前卡号</string>
+    <string name="device_iccid">设备ICCID</string>
+    <string name="card_state">卡状态：</string>
+    <string name="flow_state">流量状态：</string>
+    <string name="voice_state">语音状态：</string>
+    <string name="all_flow">总流量：</string>
+    <string name="remain_flow">剩余流量</string>
+    <string name="voice_remain">剩余语音</string>
+    <string name="voice_all">总流量：</string>
+    <string name="flow_has_use">已使用：</string>
+    <string name="purchase_confirmation_info">亲爱的用户，充值/购买前请认真核对卡号信息，以免发生误充，一旦误充，充值/购买金额将无法退还！</string>
+    <string name="has_confirmation">已确认</string>
+    <string name="price">售价</string>
+    <string name="re_diagnosis">重新诊断</string>
+    <string name="card_diagnosis">卡状态诊断</string>
+    <string name="white_list_diagnosis">白名单诊断</string>
+    <string name="flow_usage_detection">流量使用情况检测</string>
+    <string name="update_traffic_data">更新流量数据</string>
+    <string name="speech_usage_detection">语音使用情况检测</string>
+    <string name="update_voice_data">更新语音数据</string>
+    <string name="diagnosis_of_card_package">卡套餐诊断</string>
+    <string name="contact">通讯录</string>
 </resources>

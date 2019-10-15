@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 
 import com.cxsz.mealbuy.R;
 import com.cxsz.mealbuy.component.MealInfoHelper;
+import com.cxsz.mealbuy.view.activity.MineMealActivity;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
@@ -51,7 +52,8 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
                     Log.d(TAG, "onPayFinish, errCode = " + "支付成功");
                     //微信支付成功后去调后台，以后台返回的支付结果为准
                     //这里是微信支付完成后的回调，在这里请求后台，让他来告诉我们到底支付成功没。
-                    MealInfoHelper.doStartApplicationWithPackageName(WXPayEntryActivity.this,"com.concat.mineMeal");
+//                    MealInfoHelper.doStartApplicationWithPackageName(WXPayEntryActivity.this,"com.concat.mineMeal");
+                    startActivity(new Intent(this, MineMealActivity.class));
                     finish();
                     break;
                 case -1:

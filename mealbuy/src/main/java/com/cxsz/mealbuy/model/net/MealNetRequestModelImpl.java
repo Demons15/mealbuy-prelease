@@ -238,4 +238,176 @@ public class MealNetRequestModelImpl implements MealNetRequestModel {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
     }
+
+    public void realNameDiagnosis(MealProgressSubscriber<MealCodeData> subscriber, String cardNumber) {
+        Map<String, String> map = new HashMap<>();
+        map.put("appId", MealInfoHelper.getInstance().getMealAppId());
+        map.put("timestamp", MealCommonUtils.getTime());
+        map.put("signature", "");
+        map.put("nonceStr", MealInfoHelper.getInstance().getMealNonceStr());
+        map.put("cardNumber", cardNumber);
+        List<String> ignoreParamNames = new ArrayList<>();
+        ignoreParamNames.add("signature");
+        String sign = NetSignUtil.sign(map, ignoreParamNames, MealInfoHelper.getInstance().getMealSecret());
+        map.put("signature", sign);
+        RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(map));
+        networkService.realNameDiagnosis(body)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    public void cardPackageDiagnosis(MealProgressSubscriber<MealCodeData> subscriber, String cardNumber) {
+        Map<String, String> map = new HashMap<>();
+        map.put("appId", MealInfoHelper.getInstance().getMealAppId());
+        map.put("timestamp", MealCommonUtils.getTime());
+        map.put("signature", "");
+        map.put("nonceStr", MealInfoHelper.getInstance().getMealNonceStr());
+        map.put("cardNumber", cardNumber);
+        List<String> ignoreParamNames = new ArrayList<>();
+        ignoreParamNames.add("signature");
+        String sign = NetSignUtil.sign(map, ignoreParamNames, MealInfoHelper.getInstance().getMealSecret());
+        map.put("signature", sign);
+        RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(map));
+        networkService.cardPackageDiagnosis(body)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    public void synchronizationCardStatus(MealProgressSubscriber<MealCodeData> subscriber, String cardNumber) {
+        Map<String, String> map = new HashMap<>();
+        map.put("appId", MealInfoHelper.getInstance().getMealAppId());
+        map.put("timestamp", MealCommonUtils.getTime());
+        map.put("signature", "");
+        map.put("nonceStr", MealInfoHelper.getInstance().getMealNonceStr());
+        map.put("cardNumber", cardNumber);
+        List<String> ignoreParamNames = new ArrayList<>();
+        ignoreParamNames.add("signature");
+        String sign = NetSignUtil.sign(map, ignoreParamNames, MealInfoHelper.getInstance().getMealSecret());
+        map.put("signature", sign);
+        RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(map));
+        networkService.synchronizationCardStatus(body)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    public void updateVoiceData(MealProgressSubscriber<MealCodeData> subscriber, String cardNumber) {
+        Map<String, String> map = new HashMap<>();
+        map.put("appId", MealInfoHelper.getInstance().getMealAppId());
+        map.put("timestamp", MealCommonUtils.getTime());
+        map.put("signature", "");
+        map.put("nonceStr", MealInfoHelper.getInstance().getMealNonceStr());
+        map.put("cardNumber", cardNumber);
+        List<String> ignoreParamNames = new ArrayList<>();
+        ignoreParamNames.add("signature");
+        String sign = NetSignUtil.sign(map, ignoreParamNames, MealInfoHelper.getInstance().getMealSecret());
+        map.put("signature", sign);
+        RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(map));
+        networkService.updateVoiceData(body)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    public void updateTrafficData(MealProgressSubscriber<MealCodeData> subscriber, String cardNumber) {
+        Map<String, String> map = new HashMap<>();
+        map.put("appId", MealInfoHelper.getInstance().getMealAppId());
+        map.put("timestamp", MealCommonUtils.getTime());
+        map.put("signature", "");
+        map.put("nonceStr", MealInfoHelper.getInstance().getMealNonceStr());
+        map.put("cardNumber", cardNumber);
+        List<String> ignoreParamNames = new ArrayList<>();
+        ignoreParamNames.add("signature");
+        String sign = NetSignUtil.sign(map, ignoreParamNames, MealInfoHelper.getInstance().getMealSecret());
+        map.put("signature", sign);
+        RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(map));
+        networkService.updateTrafficData(body)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    public void flowDetection(MealProgressSubscriber<MealCodeData> subscriber, String cardNumber) {
+        Map<String, String> map = new HashMap<>();
+        map.put("appId", MealInfoHelper.getInstance().getMealAppId());
+        map.put("timestamp", MealCommonUtils.getTime());
+        map.put("signature", "");
+        map.put("nonceStr", MealInfoHelper.getInstance().getMealNonceStr());
+        map.put("cardNumber", cardNumber);
+        List<String> ignoreParamNames = new ArrayList<>();
+        ignoreParamNames.add("signature");
+        String sign = NetSignUtil.sign(map, ignoreParamNames, MealInfoHelper.getInstance().getMealSecret());
+        map.put("signature", sign);
+        RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(map));
+        networkService.flowDetection(body)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    public void speechDetection(MealProgressSubscriber<MealCodeData> subscriber, String cardNumber) {
+        Map<String, String> map = new HashMap<>();
+        map.put("appId", MealInfoHelper.getInstance().getMealAppId());
+        map.put("timestamp", MealCommonUtils.getTime());
+        map.put("signature", "");
+        map.put("nonceStr", MealInfoHelper.getInstance().getMealNonceStr());
+        map.put("cardNumber", cardNumber);
+        List<String> ignoreParamNames = new ArrayList<>();
+        ignoreParamNames.add("signature");
+        String sign = NetSignUtil.sign(map, ignoreParamNames, MealInfoHelper.getInstance().getMealSecret());
+        map.put("signature", sign);
+        RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(map));
+        networkService.speechDetection(body)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    public void whiteListDiagnosis(MealProgressSubscriber<MealCodeData> subscriber, String cardNumber) {
+        Map<String, String> map = new HashMap<>();
+        map.put("appId", MealInfoHelper.getInstance().getMealAppId());
+        map.put("timestamp", MealCommonUtils.getTime());
+        map.put("signature", "");
+        map.put("nonceStr", MealInfoHelper.getInstance().getMealNonceStr());
+        map.put("cardNumber", cardNumber);
+        List<String> ignoreParamNames = new ArrayList<>();
+        ignoreParamNames.add("signature");
+        String sign = NetSignUtil.sign(map, ignoreParamNames, MealInfoHelper.getInstance().getMealSecret());
+        map.put("signature", sign);
+        RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(map));
+        networkService.whiteListDiagnosis(body)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    public void readCardStatus(MealProgressSubscriber<MealCodeData> subscriber, String cardNumber) {
+        Map<String, String> map = new HashMap<>();
+        map.put("appId", MealInfoHelper.getInstance().getMealAppId());
+        map.put("timestamp", MealCommonUtils.getTime());
+        map.put("signature", "");
+        map.put("nonceStr", MealInfoHelper.getInstance().getMealNonceStr());
+        map.put("cardNumber", cardNumber);
+        List<String> ignoreParamNames = new ArrayList<>();
+        ignoreParamNames.add("signature");
+        String sign = NetSignUtil.sign(map, ignoreParamNames, MealInfoHelper.getInstance().getMealSecret());
+        map.put("signature", sign);
+        RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(map));
+        networkService.readCardStatus(body)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+    
 }

@@ -50,4 +50,50 @@ public interface MealRequestService {
     @Headers({"Content-Type:application/json;charset=utf-8", "Accept:application/json;"})
     @POST(" third/payOrder")
     Observable<MealCodeData> payOrder(@Body RequestBody body);
+
+
+    //实名状态认证
+    @Headers({"Content-Type:application/json;charset=utf-8", "Accept:application/json;"})
+    @POST("ai/realNameDiagnosis")
+    Observable<MealCodeData> realNameDiagnosis(@Body RequestBody body);
+
+    //卡套餐诊断
+    @Headers({"Content-Type:application/json;charset=utf-8", "Accept:application/json;"})
+    @POST("ai/cardPackageDiagnosis")
+    Observable<MealCodeData> cardPackageDiagnosis(@Body RequestBody body);
+
+    //同步卡状态
+    @Headers({"Content-Type:application/json;charset=utf-8", "Accept:application/json;"})
+    @POST("ai/synchronizationCardStatus")
+    Observable<MealCodeData> synchronizationCardStatus(@Body RequestBody body);
+
+    //更新语音数据
+    @Headers({"Content-Type:application/json;charset=utf-8", "Accept:application/json;"})
+    @POST("ai/updateVoiceData")
+    Observable<MealCodeData> updateVoiceData(@Body RequestBody body);
+
+    //更新流量数据
+    @Headers({"Content-Type:application/json;charset=utf-8", "Accept:application/json;"})
+    @POST("ai/updateTrafficData")
+    Observable<MealCodeData> updateTrafficData(@Body RequestBody body);
+
+    //流量检测
+    @Headers({"Content-Type:application/json;charset=utf-8", "Accept:application/json;"})
+    @POST("ai/flowDetection")
+    Observable<MealCodeData> flowDetection(@Body RequestBody body);
+
+    //语音检测
+    @Headers({"Content-Type:application/json;charset=utf-8", "Accept:application/json;"})
+    @POST("ai/speechDetection")
+    Observable<MealCodeData> speechDetection(@Body RequestBody body);
+
+    //白名单诊断
+    @Headers({"Content-Type:application/json;charset=utf-8", "Accept:application/json;"})
+    @POST("ai/whiteListDiagnosis")
+    Observable<MealCodeData> whiteListDiagnosis(@Body RequestBody body);
+
+    //读取卡状态诊断
+    @Headers({"Content-Type:application/json;charset=utf-8", "Accept:application/json;"})
+    @POST("ai/readCardStatus")
+    Observable<MealCodeData> readCardStatus(@Body RequestBody body);
 }

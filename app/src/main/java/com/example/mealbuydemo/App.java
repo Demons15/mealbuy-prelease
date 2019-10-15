@@ -1,6 +1,7 @@
 package com.example.mealbuydemo;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.cxsz.mealbuy.component.MealInfoHelper;
 
@@ -17,5 +18,10 @@ public class App extends Application {
         MealInfoHelper.getInstance().init(this, APP_ID_WEI_XIN, APP_ID, MEAL_SECRET, NONCE_STR);
         //初始化主机环境
         MealInfoHelper.getInstance().setHostIsDebug(false);
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
     }
 }

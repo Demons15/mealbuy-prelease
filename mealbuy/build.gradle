@@ -1,10 +1,11 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion 29
 
 
     defaultConfig {
-        minSdkVersion 23
+        minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -57,4 +58,6 @@ dependencies {
     api 'com.just.agentweb:filechooser:4.0.3-alpha@aar'
     api 'com.just.agentweb:download:4.0.3-alpha@aar'
     api 'com.hyman:flowlayout-lib:1.1.2'
+    api 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
 }

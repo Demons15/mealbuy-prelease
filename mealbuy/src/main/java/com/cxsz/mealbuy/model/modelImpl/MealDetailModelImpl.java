@@ -28,7 +28,7 @@ public class MealDetailModelImpl implements MealDetailModel {
                     ConfirmOrderResultBean confirmOrderResultBean = new Gson().fromJson(s, ConfirmOrderResultBean.class);
                     callBack.onSuccess(confirmOrderResultBean);
                 } else {
-                    callBack.equals(codeData.getMessage());
+                    callBack.onError(codeData.getMessage());
                 }
             }
 

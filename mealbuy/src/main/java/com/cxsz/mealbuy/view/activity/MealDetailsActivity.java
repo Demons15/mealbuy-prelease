@@ -75,7 +75,7 @@ public class MealDetailsActivity extends BaseActivity implements View.OnClickLis
         packageShowWay.check(R.id.package_buy);
         payWayGroup.setOnCheckedChangeListener(payOnCheckedChangeListener);
         payWayGroup.check(R.id.we_chat_pay);
-        mealDetailPresenter = new MealDetailPresenterImpl(this);
+        mealDetailPresenter = new MealDetailPresenterImpl(this, this);
     }
 
     /**
@@ -108,7 +108,7 @@ public class MealDetailsActivity extends BaseActivity implements View.OnClickLis
         if (v.getId() == R.id.base_left_iv) {
             finish();
         } else if (v.getId() == R.id.pay_right_now) {
-            mealDetailPresenter.RequestConfirmOrder(MealDetailsActivity.this, mealGoodsBodyBean);
+            mealDetailPresenter.RequestConfirmOrder(mealGoodsBodyBean);
         }
     }
 
@@ -135,7 +135,7 @@ public class MealDetailsActivity extends BaseActivity implements View.OnClickLis
     @Override
     public <T> void ResponseConfirmOrder(T t) {
         ConfirmOrderResultBean confirmOrderResultBean = (ConfirmOrderResultBean) t;
-        mealDetailPresenter.RequestCreateOrder(MealDetailsActivity.this, mealGoodsBodyBean, confirmOrderResultBean);
+        mealDetailPresenter.RequestCreateOrder(mealGoodsBodyBean, confirmOrderResultBean);
     }
 
     /**

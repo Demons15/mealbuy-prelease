@@ -14,16 +14,18 @@ import com.cxsz.mealbuy.view.viewInterface.MealDetailView;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 
 public class MealDetailPresenterImpl implements MealDetailPresenter {
+    private Context context;
     private MealDetailView mMealDetailView;
     private final MealDetailModel mealDetailModel;
 
-    public MealDetailPresenterImpl(MealDetailView mealDetailView) {
+    public MealDetailPresenterImpl(Context context, MealDetailView mealDetailView) {
+        this.context = context;
         this.mMealDetailView = mealDetailView;
         mealDetailModel = new MealDetailModelImpl();
     }
 
     @Override
-    public void RequestConfirmOrder(Context context, MealGoodsBean.MealGoodsBodyBean mealGoodsBodyBean) {
+    public void RequestConfirmOrder(MealGoodsBean.MealGoodsBodyBean mealGoodsBodyBean) {
         mMealDetailView.showLoadingView();
         mealDetailModel.RequestConfirmOrder(context, mealGoodsBodyBean, new CallBack() {
             @Override
@@ -43,7 +45,7 @@ public class MealDetailPresenterImpl implements MealDetailPresenter {
     }
 
     @Override
-    public void RequestCreateOrder(Context context, MealGoodsBean.MealGoodsBodyBean mealGoodsBodyBean, ConfirmOrderResultBean confirmOrderResultBean) {
+    public void RequestCreateOrder( MealGoodsBean.MealGoodsBodyBean mealGoodsBodyBean, ConfirmOrderResultBean confirmOrderResultBean) {
         mMealDetailView.showLoadingView();
         mealDetailModel.RequestCreateOrder(context, mealGoodsBodyBean, confirmOrderResultBean, new CallBack() {
             @Override

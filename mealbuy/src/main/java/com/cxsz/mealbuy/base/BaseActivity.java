@@ -11,6 +11,8 @@ import com.cxsz.mealbuy.component.AppForegroundStateManager;
 import com.cxsz.mealbuy.component.AppManager;
 import com.cxsz.mealbuy.component.StatusBarUtils;
 import com.cxsz.mealbuy.component.LoadingDialog;
+
+import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportActivity;
 
 /**
@@ -22,6 +24,7 @@ public abstract class BaseActivity extends SupportActivity {
     protected Context context;
     private LoadingDialog loadingWindows;
     public View baseLeftIv;
+    protected Unbinder unbinder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +67,10 @@ public abstract class BaseActivity extends SupportActivity {
     protected void onDestroy() {
         super.onDestroy();
         AppManager.getInstance().removeActivity(this);
+        if (unbinder != null) {
+            unbinder.unbind();
+        }
+
     }
     @Override
     public void finish() {
