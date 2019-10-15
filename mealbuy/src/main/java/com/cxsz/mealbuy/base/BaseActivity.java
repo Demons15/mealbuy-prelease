@@ -12,6 +12,7 @@ import com.cxsz.mealbuy.component.AppManager;
 import com.cxsz.mealbuy.component.StatusBarUtils;
 import com.cxsz.mealbuy.component.LoadingDialog;
 
+import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportActivity;
 
