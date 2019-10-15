@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.cxsz.mealbuy.component.KeyConstants;
+import com.cxsz.mealbuy.component.MealConstants;
 import com.cxsz.mealbuy.R;
 import com.cxsz.mealbuy.adapter.BusinessManagementListAdapter;
 import com.cxsz.mealbuy.base.BaseActivity;
@@ -77,7 +77,7 @@ public class BusinessManagementActivity extends BaseActivity implements AdapterV
         businessManagementList = findViewById(R.id.business_management_list);
         businessManagementPresenter = new BusinessManagementPresenterImpl(this);
         businessManagementPresenter.RequestGetGoodsRelevance(BusinessManagementActivity.this, MealInfoHelper.getInstance().getNumber());
-        businessType = getIntent().getIntExtra(KeyConstants.BUSINESS_TYPE, KeyConstants.PACKAGE_PURCHASE);
+        businessType = getIntent().getIntExtra(MealConstants.BUSINESS_TYPE, MealConstants.PACKAGE_PURCHASE);
     }
 
     private void initSelectInfo() {
@@ -88,9 +88,9 @@ public class BusinessManagementActivity extends BaseActivity implements AdapterV
         mFragments[FOURTH] = VoiceOverlayPacketFragment.getInstance();
         final List<BusinessManagementBean> businessManagementBeans = new ArrayList<>();
 //        businessManagementBeans.add(new BusinessManagementBean("在线充值", KeyConstants.ONLINE_RECHARGE));
-        businessManagementBeans.add(new BusinessManagementBean("套餐购买", KeyConstants.PACKAGE_PURCHASE));
-        businessManagementBeans.add(new BusinessManagementBean("流量叠加", KeyConstants.FLOW_OVERLAY_PACK));
-        businessManagementBeans.add(new BusinessManagementBean("语音叠加", KeyConstants.VOICE_OVERLAY_PACKET));
+        businessManagementBeans.add(new BusinessManagementBean("套餐购买", MealConstants.PACKAGE_PURCHASE));
+        businessManagementBeans.add(new BusinessManagementBean("流量叠加", MealConstants.FLOW_OVERLAY_PACK));
+        businessManagementBeans.add(new BusinessManagementBean("语音叠加", MealConstants.VOICE_OVERLAY_PACKET));
         businessManagementListAdapter = new BusinessManagementListAdapter(BusinessManagementActivity.this, businessManagementBeans);
         businessManagementList.setAdapter(businessManagementListAdapter);
         businessManagementList.setOnItemClickListener(this);
@@ -117,13 +117,13 @@ public class BusinessManagementActivity extends BaseActivity implements AdapterV
 //            case KeyConstants.ONLINE_RECHARGE:
 //                loadRootFragment(R.id.business_management_area, OnLineRechargeFragment.getInstance());
 //                break;
-            case KeyConstants.PACKAGE_PURCHASE:
+            case MealConstants.PACKAGE_PURCHASE:
                 loadRootFragment(R.id.business_management_area, PackagePurchaseFragment.getInstance());
                 break;
-            case KeyConstants.FLOW_OVERLAY_PACK:
+            case MealConstants.FLOW_OVERLAY_PACK:
                 loadRootFragment(R.id.business_management_area, FlowOverlayPackFragment.getInstance());
                 break;
-            case KeyConstants.VOICE_OVERLAY_PACKET:
+            case MealConstants.VOICE_OVERLAY_PACKET:
                 loadRootFragment(R.id.business_management_area, VoiceOverlayPacketFragment.getInstance());
                 break;
             default:

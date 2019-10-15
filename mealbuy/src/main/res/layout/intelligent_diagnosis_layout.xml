@@ -57,13 +57,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+            android:paddingLeft="@dimen/x32"
+            android:paddingRight="@dimen/x32">
 
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/x32"
                 android:background="@drawable/diagnosis_bg_shape">
 
                 <ImageView
@@ -71,7 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:layout_marginRight="7dp"
+                    android:layout_marginRight="@dimen/x14"
                     android:src="@mipmap/intelligent_diagnosis_bg" />
 
                 <TextView
@@ -79,42 +79,42 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|right"
-                    android:layout_marginRight="24dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginRight="@dimen/x48"
+                    android:layout_marginBottom="@dimen/x32"
                     android:text="@string/re_diagnosis"
                     android:textColor="@color/white"
-                    android:textSize="13sp" />
+                    android:textSize="@dimen/x26" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingLeft="20dp">
+                    android:paddingLeft="@dimen/x40">
 
                     <TextView
                         android:id="@+id/card_number"
                         android:layout_width="wrap_content"
-                        android:layout_height="28dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_height="@dimen/x56"
+                        android:layout_marginTop="@dimen/x32"
                         android:gravity="center_vertical"
                         android:text="17220350005"
                         android:textColor="@color/white"
-                        android:textSize="19sp" />
+                        android:textSize="@dimen/x38" />
 
                     <TextView
                         android:id="@+id/icc_id_number"
                         android:layout_width="wrap_content"
-                        android:layout_height="18dp"
-                        android:layout_marginTop="2dp"
+                        android:layout_height="@dimen/x36"
+                        android:layout_marginTop="@dimen/x4"
                         android:gravity="center_vertical"
                         android:text="ICCID : 89860 2F219 18800 10314"
                         android:textColor="@color/white"
-                        android:textSize="13sp" />
+                        android:textSize="@dimen/x26" />
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="19dp">
+                        android:layout_marginTop="@dimen/x38">
 
                         <TextView
                             android:id="@+id/status"
@@ -122,7 +122,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:textColor="@color/white"
-                            android:textSize="21sp" />
+                            android:textSize="@dimen/x42" />
                     </RelativeLayout>
                 </LinearLayout>
             </FrameLayout>
@@ -130,41 +130,41 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="@dimen/x28"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="21dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_height="@dimen/x42"
+                    android:layout_marginTop="@dimen/x32"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <View
-                        android:layout_width="4dp"
-                        android:layout_height="14dp"
+                        android:layout_width="@dimen/x8"
+                        android:layout_height="@dimen/x28"
                         android:background="#058BE8" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginLeft="@dimen/x24"
                         android:text="诊断结果"
                         android:textColor="#FF333333"
-                        android:textSize="15sp" />
+                        android:textSize="@dimen/x30" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="19dp"
+                    android:layout_marginTop="@dimen/x38"
                     android:orientation="vertical"
-                    android:paddingLeft="19dp"
-                    android:paddingRight="19dp">
+                    android:paddingLeft="@dimen/x38"
+                    android:paddingRight="@dimen/x38">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="18dp">
+                        android:layout_height="@dimen/x36">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -172,13 +172,13 @@
                             android:layout_alignParentLeft="true"
                             android:text="@string/real_name_authentication"
                             android:textColor="#FF4D4D4D"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/x26" />
 
                         <FrameLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
-                            android:layout_marginTop="1dp">
+                            android:layout_marginTop="@dimen/x2">
 
                             <TextView
                                 android:id="@+id/real_name_authentication_notice"
@@ -186,7 +186,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/wait_result"
                                 android:textColor="#FF999999"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/x24" />
 
                             <ImageView
                                 android:id="@+id/real_name_authentication"
@@ -200,8 +200,8 @@
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="18dp"
-                        android:layout_marginTop="12dp">
+                        android:layout_height="@dimen/x36"
+                        android:layout_marginTop="@dimen/x24">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -209,13 +209,13 @@
                             android:layout_alignParentLeft="true"
                             android:text="@string/diagnosis_of_card_package"
                             android:textColor="#FF4D4D4D"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/x26" />
 
                         <FrameLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
-                            android:layout_marginTop="1dp">
+                            android:layout_marginTop="@dimen/x2">
 
                             <TextView
                                 android:id="@+id/diagnosis_of_card_package_notice"
@@ -237,8 +237,8 @@
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="18dp"
-                        android:layout_marginTop="12dp">
+                        android:layout_height="@dimen/x36"
+                        android:layout_marginTop="@dimen/x24">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -246,13 +246,13 @@
                             android:layout_alignParentLeft="true"
                             android:text="@string/activation_state"
                             android:textColor="#FF4D4D4D"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/x26" />
 
                         <FrameLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
-                            android:layout_marginTop="1dp">
+                            android:layout_marginTop="@dimen/x2">
 
                             <TextView
                                 android:id="@+id/activation_state_notice"
@@ -274,8 +274,8 @@
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="18dp"
-                        android:layout_marginTop="12dp">
+                        android:layout_height="@dimen/x36"
+                        android:layout_marginTop="@dimen/x24">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -283,13 +283,13 @@
                             android:layout_alignParentLeft="true"
                             android:text="@string/update_voice_data"
                             android:textColor="#FF4D4D4D"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/x26" />
 
                         <FrameLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
-                            android:layout_marginTop="1dp">
+                            android:layout_marginTop="@dimen/x2">
 
                             <TextView
                                 android:id="@+id/update_voice_data_notice"
@@ -311,8 +311,8 @@
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="18dp"
-                        android:layout_marginTop="12dp">
+                        android:layout_height="@dimen/x36"
+                        android:layout_marginTop="@dimen/x24">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -320,13 +320,13 @@
                             android:layout_alignParentLeft="true"
                             android:text="@string/speech_usage_detection"
                             android:textColor="#FF4D4D4D"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/x26" />
 
                         <FrameLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
-                            android:layout_marginTop="1dp">
+                            android:layout_marginTop="@dimen/x2">
 
                             <TextView
                                 android:id="@+id/speech_usage_detection_notice"
@@ -348,8 +348,8 @@
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="18dp"
-                        android:layout_marginTop="12dp">
+                        android:layout_height="@dimen/x36"
+                        android:layout_marginTop="@dimen/x24">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -357,13 +357,13 @@
                             android:layout_alignParentLeft="true"
                             android:text="@string/update_traffic_data"
                             android:textColor="#FF4D4D4D"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/x26" />
 
                         <FrameLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
-                            android:layout_marginTop="1dp">
+                            android:layout_marginTop="@dimen/x2">
 
                             <TextView
                                 android:id="@+id/update_traffic_data_notice"
@@ -385,8 +385,8 @@
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="18dp"
-                        android:layout_marginTop="12dp">
+                        android:layout_height="@dimen/x36"
+                        android:layout_marginTop="@dimen/x24">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -394,13 +394,13 @@
                             android:layout_alignParentLeft="true"
                             android:text="@string/flow_usage_detection"
                             android:textColor="#FF4D4D4D"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/x26" />
 
                         <FrameLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
-                            android:layout_marginTop="1dp">
+                            android:layout_marginTop="@dimen/x2">
 
                             <TextView
                                 android:id="@+id/flow_usage_detection_notice"
@@ -422,8 +422,8 @@
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="18dp"
-                        android:layout_marginTop="12dp">
+                        android:layout_height="@dimen/x36"
+                        android:layout_marginTop="@dimen/x24">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -431,13 +431,13 @@
                             android:layout_alignParentLeft="true"
                             android:text="@string/white_list_diagnosis"
                             android:textColor="#FF4D4D4D"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/x26" />
 
                         <FrameLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
-                            android:layout_marginTop="1dp">
+                            android:layout_marginTop="@dimen/x2">
 
                             <TextView
                                 android:id="@+id/white_list_diagnosis_notice"
@@ -459,9 +459,9 @@
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="18dp"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginBottom="14dp">
+                        android:layout_height="@dimen/x36"
+                        android:layout_marginTop="@dimen/x24"
+                        android:layout_marginBottom="@dimen/x28">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -469,13 +469,13 @@
                             android:layout_alignParentLeft="true"
                             android:text="@string/card_diagnosis"
                             android:textColor="#FF4D4D4D"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/x26" />
 
                         <FrameLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
-                            android:layout_marginTop="1dp">
+                            android:layout_marginTop="@dimen/x2">
 
                             <TextView
                                 android:id="@+id/card_diagnosis_notice"
@@ -500,26 +500,26 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="@dimen/x28"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="21dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_height="@dimen/x42"
+                    android:layout_marginTop="@dimen/x32"
+                    android:layout_marginBottom="@dimen/x40"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <View
-                        android:layout_width="4dp"
-                        android:layout_height="14dp"
+                        android:layout_width="@dimen/x8"
+                        android:layout_height="@dimen/x28"
                         android:background="#058BE8" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginLeft="@dimen/x24"
                         android:text="@string/diagnostic_recommendations"
                         android:textColor="#FF333333"
                         android:textSize="15sp" />
@@ -532,10 +532,10 @@
                     <LinearLayout
                         android:id="@+id/result_normal_area"
                         android:layout_width="wrap_content"
-                        android:layout_height="18dp"
-                        android:layout_marginLeft="14dp"
-                        android:layout_marginRight="14dp"
-                        android:layout_marginBottom="19dp"
+                        android:layout_height="@dimen/x36"
+                        android:layout_marginLeft="@dimen/x28"
+                        android:layout_marginRight="@dimen/x28"
+                        android:layout_marginBottom="@dimen/x38"
                         android:orientation="horizontal"
                         android:visibility="gone">
 
@@ -545,7 +545,7 @@
                             android:layout_alignParentLeft="true"
                             android:text="@string/detection_result"
                             android:textColor="#FF4D4D4D"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/x26" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -553,22 +553,22 @@
                             android:layout_alignParentLeft="true"
                             android:text="您的流量卡目前处于正常状态！"
                             android:textColor="#FF4D4D4D"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/x26" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/result_unusual_area"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="14dp"
-                        android:layout_marginRight="14dp"
+                        android:layout_marginLeft="@dimen/x28"
+                        android:layout_marginRight="@dimen/x28"
                         android:orientation="vertical">
 
                         <FrameLayout
                             android:id="@+id/real_name_authentication_result_area"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
+                            android:layout_marginBottom="@dimen/x24"
                             android:visibility="gone">
 
                             <TextView
@@ -577,7 +577,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentLeft="true"
                                 android:textColor="#FF4D4D4D"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/x26" />
 
                         </FrameLayout>
 
@@ -585,7 +585,7 @@
                             android:id="@+id/diagnosis_of_card_package_result_area"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
+                            android:layout_marginBottom="@dimen/x24"
                             android:visibility="gone">
 
                             <TextView
@@ -594,14 +594,14 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentLeft="true"
                                 android:textColor="#FF4D4D4D"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/x26" />
                         </FrameLayout>
 
                         <FrameLayout
                             android:id="@+id/activation_state_result_area"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
+                            android:layout_marginBottom="@dimen/x24"
                             android:visibility="gone">
 
                             <TextView
@@ -610,7 +610,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentLeft="true"
                                 android:textColor="#FF4D4D4D"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/x26" />
 
                         </FrameLayout>
 
@@ -618,7 +618,7 @@
                             android:id="@+id/update_voice_data_result_area"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
+                            android:layout_marginBottom="@dimen/x24"
                             android:visibility="gone">
 
                             <TextView
@@ -627,14 +627,14 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentLeft="true"
                                 android:textColor="#FF4D4D4D"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/x26" />
                         </FrameLayout>
 
                         <FrameLayout
                             android:id="@+id/speech_usage_detection_result_area"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
+                            android:layout_marginBottom="@dimen/x24"
                             android:visibility="gone">
 
                             <TextView
@@ -643,14 +643,14 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentLeft="true"
                                 android:textColor="#FF4D4D4D"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/x26" />
                         </FrameLayout>
 
                         <FrameLayout
                             android:id="@+id/update_traffic_data_result_area"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
+                            android:layout_marginBottom="@dimen/x24"
                             android:visibility="gone">
 
                             <TextView
@@ -659,7 +659,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentLeft="true"
                                 android:textColor="#FF4D4D4D"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/x26" />
 
                         </FrameLayout>
 
@@ -667,7 +667,7 @@
                             android:id="@+id/flow_usage_detection_result_area"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
+                            android:layout_marginBottom="@dimen/x24"
                             android:visibility="gone">
 
                             <TextView
@@ -676,7 +676,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentLeft="true"
                                 android:textColor="#FF4D4D4D"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/x26" />
 
                         </FrameLayout>
 
@@ -684,7 +684,7 @@
                             android:id="@+id/white_list_diagnosis_result_area"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
+                            android:layout_marginBottom="@dimen/x24"
                             android:visibility="gone">
 
                             <TextView
@@ -693,14 +693,14 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentLeft="true"
                                 android:textColor="#FF4D4D4D"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/x26" />
                         </FrameLayout>
 
                         <FrameLayout
                             android:id="@+id/card_diagnosis_notice_result_area"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
+                            android:layout_marginBottom="@dimen/x24"
                             android:visibility="gone">
 
                             <TextView
@@ -709,7 +709,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentLeft="true"
                                 android:textColor="#FF4D4D4D"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/x26" />
                         </FrameLayout>
 
                     </LinearLayout>

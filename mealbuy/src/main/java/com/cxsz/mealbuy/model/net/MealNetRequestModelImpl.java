@@ -2,9 +2,7 @@ package com.cxsz.mealbuy.model.net;
 
 import com.cxsz.mealbuy.bean.ConfirmOrderBean;
 import com.cxsz.mealbuy.component.MealCommonUtils;
-import com.cxsz.mealbuy.component.KeyConstants;
 import com.cxsz.mealbuy.component.MealInfoHelper;
-import com.cxsz.mealbuy.component.NetService;
 import com.cxsz.mealbuy.component.NetSignUtil;
 import com.google.gson.Gson;
 

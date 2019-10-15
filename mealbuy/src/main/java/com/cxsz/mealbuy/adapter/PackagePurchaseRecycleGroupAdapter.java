@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cxsz.mealbuy.component.KeyConstants;
+import com.cxsz.mealbuy.component.MealConstants;
 import com.cxsz.mealbuy.R;
 import com.cxsz.mealbuy.bean.MealGoodsFilterBean;
 import com.cxsz.mealbuy.view.activity.MealDetailsActivity;
@@ -74,7 +74,7 @@ public class PackagePurchaseRecycleGroupAdapter extends RecyclerView.Adapter<Pac
                 @Override
                 public void onItemClick(View view, int position) {
                     Intent intent = new Intent(context, MealDetailsActivity.class);
-                    intent.putExtra(KeyConstants.PACKET_INFO, mealGoodsBodyBean.getBody().get(position));
+                    intent.putExtra(MealConstants.PACKET_INFO, mealGoodsBodyBean.getBody().get(position));
                     context.startActivity(intent);
                     context.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 }

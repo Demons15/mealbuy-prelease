@@ -7,7 +7,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.cxsz.mealbuy.component.KeyConstants;
+import com.cxsz.mealbuy.component.MealConstants;
 import com.cxsz.mealbuy.R;
 import com.cxsz.mealbuy.base.BaseActivity;
 import com.cxsz.mealbuy.bean.ConfirmOrderResultBean;
@@ -19,9 +19,6 @@ import com.cxsz.mealbuy.presenter.presenterImpl.MealDetailPresenterImpl;
 import com.cxsz.mealbuy.presenter.presenterInterface.MealDetailPresenter;
 import com.cxsz.mealbuy.view.viewInterface.MealDetailView;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-
-import org.greenrobot.eventbus.EventBus;
 
 public class MealDetailsActivity extends BaseActivity implements View.OnClickListener, MealDetailView {
     RadioGroup packageShowWay;
@@ -69,7 +66,7 @@ public class MealDetailsActivity extends BaseActivity implements View.OnClickLis
         leftIcon.setOnClickListener(this);
         payRightNow.setOnClickListener(this);
         api = MealInfoHelper.getInstance().iwxapi;
-        mealGoodsBodyBean = (MealGoodsBean.MealGoodsBodyBean) getIntent().getSerializableExtra(KeyConstants.PACKET_INFO);
+        mealGoodsBodyBean = (MealGoodsBean.MealGoodsBodyBean) getIntent().getSerializableExtra(MealConstants.PACKET_INFO);
         initPackageInfo(mealGoodsBodyBean);
         packageShowWay.setOnCheckedChangeListener(packageOnCheckedChangeListener);
         packageShowWay.check(R.id.package_buy);

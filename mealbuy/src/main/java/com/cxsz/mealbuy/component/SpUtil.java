@@ -23,7 +23,7 @@ public class SpUtil {
 
     private static SharedPreferences getSp(Context context) {
         if (sp == null) {
-            sp = context.getSharedPreferences(KeyConstants.SP_INFO, Context.MODE_PRIVATE);
+            sp = context.getSharedPreferences(MealConstants.SP_INFO, Context.MODE_PRIVATE);
         }
         return sp;
     }

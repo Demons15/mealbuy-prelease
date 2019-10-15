@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.cxsz.mealbuy.component.MealConstants;
 import com.cxsz.mealbuy.component.MealInfoHelper;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,9 +17,19 @@ public class MainActivity extends AppCompatActivity {
         MealInfoHelper.getInstance().setNumber("17234248248");
     }
 
-    public void test(View view) {
-        //        MealInfoHelper.getInstance().doStartApplicationWithPackageName(this, "com.concat.businessManagement");
+    public void businessManagement(View view) {
+        MealInfoHelper.getInstance().doStartApplicationWithPackageName(this, MealConstants.BUSINESS_MANAGEMENT);
+    }
 
-        MealInfoHelper.getInstance().doStartApplicationWithPackageName(this, "com.concat.intelligentDiagnosis");
+    public void mineMeal(View view) {
+        MealInfoHelper.getInstance().doStartApplicationWithPackageName(this, MealConstants.MINE_MEAL);
+    }
+
+    public void realName(View view) {
+        MealInfoHelper.getInstance().doStartApplicationWithPackageName(this, MealConstants.REAL_NAME);
+    }
+
+    public void intelligentDiagnosis(View view) {
+        MealInfoHelper.getInstance().doStartApplicationWithPackageName(this, MealConstants.INTELLIGENT_DIAGNOSIS);
     }
 }

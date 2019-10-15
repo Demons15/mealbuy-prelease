@@ -7,7 +7,7 @@
         android:type="linear"
         android:useLevel="true" />
     <size
-        android:width="343dp"
-        android:height="132dp" />
-    <corners android:radius="4dp" />
+        android:width="@dimen/x686"
+        android:height="@dimen/x264" />
+    <corners android:radius="@dimen/x8" />
 </shape>

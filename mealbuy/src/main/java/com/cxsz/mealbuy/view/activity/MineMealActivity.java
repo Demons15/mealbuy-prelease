@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cxsz.mealbuy.component.MealCommonUtils;
-import com.cxsz.mealbuy.component.KeyConstants;
+import com.cxsz.mealbuy.component.MealConstants;
 import com.cxsz.mealbuy.R;
 import com.cxsz.mealbuy.component.MealInfoHelper;
 import com.cxsz.mealbuy.adapter.NoUseMealRecycleAdapter;
@@ -215,12 +215,12 @@ public class MineMealActivity extends BaseActivity implements View.OnClickListen
             finish();
         } else if (id == R.id.buy_flow_package) {
             Intent flIntent = new Intent(this, BusinessManagementActivity.class);
-            flIntent.putExtra(KeyConstants.BUSINESS_TYPE, KeyConstants.FLOW_OVERLAY_PACK);
+            flIntent.putExtra(MealConstants.BUSINESS_TYPE, MealConstants.FLOW_OVERLAY_PACK);
             startActivity(flIntent);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         } else if (id == R.id.buy_voice_package) {
             Intent voIntent = new Intent(this, BusinessManagementActivity.class);
-            voIntent.putExtra(KeyConstants.BUSINESS_TYPE, KeyConstants.VOICE_OVERLAY_PACKET);
+            voIntent.putExtra(MealConstants.BUSINESS_TYPE, MealConstants.VOICE_OVERLAY_PACKET);
             startActivity(voIntent);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         }

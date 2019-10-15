@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cxsz.mealbuy.component.KeyConstants;
+import com.cxsz.mealbuy.component.MealConstants;
 import com.cxsz.mealbuy.R;
 import com.cxsz.mealbuy.component.MealInfoHelper;
 import com.cxsz.mealbuy.adapter.FlowOverlayPacketRecycleAdapter;
@@ -40,7 +40,7 @@ public class FlowOverlayPackFragment extends BaseMainFragment {
                 public void onItemClick(View view, int position) {
 //                    ToastUtil.show(getActivity(), "您点击的是流量叠加包:" + mealGoodsBodyBeanList.get(position).getGoodsName());
                     Intent intent = new Intent(getActivity(), MealDetailsActivity.class);
-                    intent.putExtra(KeyConstants.PACKET_INFO, mealGoodsBodyBeanList.get(position));
+                    intent.putExtra(MealConstants.PACKET_INFO, mealGoodsBodyBeanList.get(position));
                     startActivity(intent);
                     getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 }
