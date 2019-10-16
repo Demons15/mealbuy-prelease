@@ -6,4 +6,6 @@ public interface BaseView {
     void closeLoadingView();
 
     void showErrorInfo(String info);
+
+    void showErrorInfo(String tag, String info);
 }

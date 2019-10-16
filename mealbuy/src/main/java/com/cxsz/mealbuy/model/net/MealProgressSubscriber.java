@@ -5,8 +5,10 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.cxsz.mealbuy.component.LogUtil;
+
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
 
 import rx.Subscriber;
 
@@ -62,26 +64,25 @@ public class MealProgressSubscriber<T> extends Subscriber<T> implements MealProg
      */
     @Override
     public void onError(Throwable e) {
-        mSubscriberOnNextListener.onError(e);
-        //todo 这里可以打印网络访问出错原因
+        String errorInfo = "";
         if (e instanceof SocketTimeoutException) {
-            Log.d("TEST", "1: ");
-            LogUtil.setTagE("网络访问异常信息:", e.toString());
-            Log.e("网络访问异常信息2", "onError: ", e);
-            if (e.toString().contains("timed out")) {
-                Toast.makeText(context, "网络连接超时", Toast.LENGTH_SHORT).show();
-            }
+            errorInfo = "网络连接超时!";
+            LogUtil.setTagE("NetError:", errorInfo);
+            Toast.makeText(context, errorInfo, Toast.LENGTH_SHORT).show();
         } else if (e instanceof ConnectException) {
-            Log.d("TEST", "2: ");
-            LogUtil.setTagE("网络访问异常信息:", e.toString());
-//            Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
+            errorInfo = "网络连接异常!";
+            LogUtil.setTagE("NetError:", errorInfo);
+            Toast.makeText(context, errorInfo, Toast.LENGTH_SHORT).show();
+        } else if (e instanceof UnknownHostException) {
+            errorInfo = "网络连接异常!";
+            LogUtil.setTagE("NetError:", errorInfo);
+            Toast.makeText(context, errorInfo, Toast.LENGTH_SHORT).show();
         } else {
-            Log.d("TEST", "3: " + e.toString());
-            LogUtil.setTagE("网络访问异常信息:", e.toString());
-            if (e.getMessage().contains("HTTP 401 Unauthorized")) {
-
-            }
+            errorInfo = e.getMessage();
+            LogUtil.setTagE("NetError:", errorInfo);
+            Toast.makeText(context, errorInfo, Toast.LENGTH_SHORT).show();
         }
+        mSubscriberOnNextListener.onError(new Exception(errorInfo));
     }
 
     /**

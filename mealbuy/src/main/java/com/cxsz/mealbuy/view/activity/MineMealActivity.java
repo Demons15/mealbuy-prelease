@@ -279,4 +279,9 @@ public class MineMealActivity extends BaseActivity implements View.OnClickListen
     public void showErrorInfo(String info) {
         ToastUtil.show(MineMealActivity.this, info);
     }
+
+    @Override
+    public void showErrorInfo(String tag, String info) {
+
+    }
 }

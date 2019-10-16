@@ -25,6 +25,8 @@
     <!--按钮已点击-->
 
     <color name="main_text_color">#485465</color>
-
-
+    <color name="color_F6F6F6">#F6F6F6</color>
+    <color name="color_4386FF">#4386FF</color>
+    <color name="color_BCBCBC">#BCBCBC</color>
+    <color name="color_4d4d4d">#4D4D4D</color>
 </resources>

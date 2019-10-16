@@ -21,6 +21,7 @@ import com.cxsz.mealbuy.component.ToastUtil;
 import com.cxsz.mealbuy.presenter.presenterImpl.ChoosePhoneNumberPresenterImpl;
 import com.cxsz.mealbuy.presenter.presenterInterface.ChoosePhoneNumberPresenter;
 import com.cxsz.mealbuy.view.viewInterface.ChoosePhoneNumberView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -130,5 +131,10 @@ public class ChoosePhoneNumberWindows extends BaseWindowView implements ChoosePh
     @Override
     public void showErrorInfo(String info) {
         ToastUtil.show(getContext(), info);
+    }
+
+    @Override
+    public void showErrorInfo(String tag, String info) {
+
     }
 }

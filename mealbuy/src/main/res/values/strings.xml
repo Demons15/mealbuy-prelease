@@ -50,4 +50,5 @@
     <string name="update_voice_data">更新语音数据</string>
     <string name="diagnosis_of_card_package">卡套餐诊断</string>
     <string name="contact">通讯录</string>
+    <string name="white_list">白名单</string>
 </resources>

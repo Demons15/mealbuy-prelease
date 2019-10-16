@@ -96,4 +96,19 @@ public interface MealRequestService {
     @Headers({"Content-Type:application/json;charset=utf-8", "Accept:application/json;"})
     @POST("ai/readCardStatus")
     Observable<MealCodeData> readCardStatus(@Body RequestBody body);
+
+    //查询白名单
+    @Headers({"Content-Type:application/json;charset=utf-8", "Accept:application/json;"})
+    @POST("queryVoiceWhiteList")
+    Observable<MealCodeData> queryVoiceWhiteList(@Body RequestBody body);
+
+    //添加或删除白名单
+    @Headers({"Content-Type:application/json;charset=utf-8", "Accept:application/json;"})
+    @POST("addOrDelVoiceWhiteManager")
+    Observable<MealCodeData> addOrDelVoiceWhiteManager(@Body RequestBody body);
+
+    //查询白名单已添加次数
+    @Headers({"Content-Type:application/json;charset=utf-8", "Accept:application/json;"})
+    @POST("queryAddWhiteCount")
+    Observable<MealCodeData> queryAddWhiteCount(@Body RequestBody body);
 }

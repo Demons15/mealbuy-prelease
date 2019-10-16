@@ -176,4 +176,9 @@ public class MealDetailsActivity extends BaseActivity implements View.OnClickLis
             ToastUtil.show(this, info);
         }
     }
+
+    @Override
+    public void showErrorInfo(String tag, String info) {
+
+    }
 }

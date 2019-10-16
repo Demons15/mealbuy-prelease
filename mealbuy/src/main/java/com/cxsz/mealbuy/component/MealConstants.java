@@ -16,4 +16,20 @@ public class MealConstants {
     public static final String MINE_MEAL = "com.concat.mineMeal";
     public static final String REAL_NAME = "com.concat.realName";
     public static final String INTELLIGENT_DIAGNOSIS = "com.concat.intelligentDiagnosis";
+    public static final String WHITE_LIST = "com.concat.contact";
+
+    public static final String CONTACT_INPUT_TYPE = "1";
+
+    public static final String ADD_CONTACT = "add";
+    public static final String DELETE_CONTACT = "del";
+
+    public static final String RESPONSE_REAL_NAME_DIAGNOSIS = "ResponseRealNameDiagnosis";
+    public static final String RESPONSE_CARD_PACKAGE_DIAGNOSIS = "ResponseCardPackageDiagnosis";
+    public static final String RESPONSE_SYNCHRONIZATION_CARD_STATUS = "ResponseSynchronizationCardStatus";
+    public static final String RESPONSE_UPDATE_VOICE_DATA = "ResponseUpdateVoiceData";
+    public static final String RESPONSE_UPDATE_TRAFFIC_DATA = "ResponseUpdateTrafficData";
+    public static final String RESPONSE_FLOW_DETECTION = "ResponseFlowDetection";
+    public static final String RESPONSE_SPEECH_DETECTION = "ResponseSpeechDetection";
+    public static final String RESPONSE_WHITE_LIST_DIAGNOSIS = "ResponseWhiteListDiagnosis";
+    public static final String RESPONSE_READ_CARD_STATUS = "ResponseReadCardStatus";
 }

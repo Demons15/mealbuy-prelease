@@ -32,4 +32,8 @@ public class MainActivity extends AppCompatActivity {
     public void intelligentDiagnosis(View view) {
         MealInfoHelper.getInstance().doStartApplicationWithPackageName(this, MealConstants.INTELLIGENT_DIAGNOSIS);
     }
+
+    public void whiteList(View view) {
+        MealInfoHelper.getInstance().doStartApplicationWithPackageName(this, MealConstants.WHITE_LIST);
+    }
 }

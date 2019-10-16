@@ -3,6 +3,7 @@ package com.cxsz.mealbuy.presenter.presenterImpl;
 
 import android.content.Context;
 
+import com.cxsz.mealbuy.component.MealConstants;
 import com.cxsz.mealbuy.model.callback.CallBack;
 import com.cxsz.mealbuy.model.modelImpl.IntelligentDiagnosisModelImpl;
 import com.cxsz.mealbuy.model.modelInterface.IntelligentDiagnosisModel;
@@ -35,7 +36,7 @@ public class IntelligentDiagnosisPresenterImpl implements IntelligentDiagnosisPr
             @Override
             public void onError(String error) {
                 if (error != null) {
-                    intelligentDiagnosisView.showErrorInfo(error);
+                    intelligentDiagnosisView.showErrorInfo(MealConstants.RESPONSE_REAL_NAME_DIAGNOSIS,error);
                 }
                 intelligentDiagnosisView.closeLoadingView();
             }
@@ -56,7 +57,7 @@ public class IntelligentDiagnosisPresenterImpl implements IntelligentDiagnosisPr
             @Override
             public void onError(String error) {
                 if (error != null) {
-                    intelligentDiagnosisView.showErrorInfo(error);
+                    intelligentDiagnosisView.showErrorInfo(MealConstants.RESPONSE_CARD_PACKAGE_DIAGNOSIS,error);
                 }
                 intelligentDiagnosisView.closeLoadingView();
             }
@@ -77,7 +78,7 @@ public class IntelligentDiagnosisPresenterImpl implements IntelligentDiagnosisPr
             @Override
             public void onError(String error) {
                 if (error != null) {
-                    intelligentDiagnosisView.showErrorInfo(error);
+                    intelligentDiagnosisView.showErrorInfo(MealConstants.RESPONSE_SYNCHRONIZATION_CARD_STATUS,error);
                 }
                 intelligentDiagnosisView.closeLoadingView();
             }
@@ -98,7 +99,7 @@ public class IntelligentDiagnosisPresenterImpl implements IntelligentDiagnosisPr
             @Override
             public void onError(String error) {
                 if (error != null) {
-                    intelligentDiagnosisView.showErrorInfo(error);
+                    intelligentDiagnosisView.showErrorInfo(MealConstants.RESPONSE_UPDATE_VOICE_DATA,error);
                 }
                 intelligentDiagnosisView.closeLoadingView();
             }
@@ -119,7 +120,7 @@ public class IntelligentDiagnosisPresenterImpl implements IntelligentDiagnosisPr
             @Override
             public void onError(String error) {
                 if (error != null) {
-                    intelligentDiagnosisView.showErrorInfo(error);
+                    intelligentDiagnosisView.showErrorInfo(MealConstants.RESPONSE_UPDATE_TRAFFIC_DATA,error);
                 }
                 intelligentDiagnosisView.closeLoadingView();
             }
@@ -140,7 +141,7 @@ public class IntelligentDiagnosisPresenterImpl implements IntelligentDiagnosisPr
             @Override
             public void onError(String error) {
                 if (error != null) {
-                    intelligentDiagnosisView.showErrorInfo(error);
+                    intelligentDiagnosisView.showErrorInfo(MealConstants.RESPONSE_FLOW_DETECTION,error);
                 }
                 intelligentDiagnosisView.closeLoadingView();
             }
@@ -161,7 +162,7 @@ public class IntelligentDiagnosisPresenterImpl implements IntelligentDiagnosisPr
             @Override
             public void onError(String error) {
                 if (error != null) {
-                    intelligentDiagnosisView.showErrorInfo(error);
+                    intelligentDiagnosisView.showErrorInfo(MealConstants.RESPONSE_SPEECH_DETECTION,error);
                 }
                 intelligentDiagnosisView.closeLoadingView();
             }
@@ -182,7 +183,7 @@ public class IntelligentDiagnosisPresenterImpl implements IntelligentDiagnosisPr
             @Override
             public void onError(String error) {
                 if (error != null) {
-                    intelligentDiagnosisView.showErrorInfo(error);
+                    intelligentDiagnosisView.showErrorInfo(MealConstants.RESPONSE_WHITE_LIST_DIAGNOSIS,error);
                 }
                 intelligentDiagnosisView.closeLoadingView();
             }
@@ -203,7 +204,7 @@ public class IntelligentDiagnosisPresenterImpl implements IntelligentDiagnosisPr
             @Override
             public void onError(String error) {
                 if (error != null) {
-                    intelligentDiagnosisView.showErrorInfo(error);
+                    intelligentDiagnosisView.showErrorInfo(MealConstants.RESPONSE_READ_CARD_STATUS,error);
                 }
                 intelligentDiagnosisView.closeLoadingView();
             }

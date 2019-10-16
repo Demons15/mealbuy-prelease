@@ -24,7 +24,7 @@ public class IntelligentDiagnosisModelImpl  implements IntelligentDiagnosisModel
 
             @Override
             public void onError(Throwable e) {
-                callBack.equals(e.getMessage());
+                callBack.onError(e.getMessage());
             }
         };
         MealNetRequestModelImpl.getInstance().realNameDiagnosis(new MealProgressSubscriber<MealCodeData>(bindSubscriberOnNextListener, context, true),
@@ -44,7 +44,7 @@ public class IntelligentDiagnosisModelImpl  implements IntelligentDiagnosisModel
 
             @Override
             public void onError(Throwable e) {
-                callBack.equals(e.getMessage());
+               callBack.onError(e.getMessage());
             }
         };
         MealNetRequestModelImpl.getInstance().cardPackageDiagnosis(new MealProgressSubscriber<MealCodeData>(bindSubscriberOnNextListener, context, true),
@@ -64,7 +64,7 @@ public class IntelligentDiagnosisModelImpl  implements IntelligentDiagnosisModel
 
             @Override
             public void onError(Throwable e) {
-                callBack.equals(e.getMessage());
+               callBack.onError(e.getMessage());
             }
         };
         MealNetRequestModelImpl.getInstance().synchronizationCardStatus(new MealProgressSubscriber<MealCodeData>(bindSubscriberOnNextListener, context, true),
@@ -84,7 +84,7 @@ public class IntelligentDiagnosisModelImpl  implements IntelligentDiagnosisModel
 
             @Override
             public void onError(Throwable e) {
-                callBack.equals(e.getMessage());
+               callBack.onError(e.getMessage());
             }
         };
         MealNetRequestModelImpl.getInstance().updateVoiceData(new MealProgressSubscriber<MealCodeData>(bindSubscriberOnNextListener, context, true),
@@ -104,7 +104,7 @@ public class IntelligentDiagnosisModelImpl  implements IntelligentDiagnosisModel
 
             @Override
             public void onError(Throwable e) {
-                callBack.equals(e.getMessage());
+               callBack.onError(e.getMessage());
             }
         };
         MealNetRequestModelImpl.getInstance().updateTrafficData(new MealProgressSubscriber<MealCodeData>(bindSubscriberOnNextListener, context, true),
@@ -124,7 +124,7 @@ public class IntelligentDiagnosisModelImpl  implements IntelligentDiagnosisModel
 
             @Override
             public void onError(Throwable e) {
-                callBack.equals(e.getMessage());
+               callBack.onError(e.getMessage());
             }
         };
         MealNetRequestModelImpl.getInstance().flowDetection(new MealProgressSubscriber<MealCodeData>(bindSubscriberOnNextListener, context, true),
@@ -144,7 +144,7 @@ public class IntelligentDiagnosisModelImpl  implements IntelligentDiagnosisModel
 
             @Override
             public void onError(Throwable e) {
-                callBack.equals(e.getMessage());
+               callBack.onError(e.getMessage());
             }
         };
         MealNetRequestModelImpl.getInstance().speechDetection(new MealProgressSubscriber<MealCodeData>(bindSubscriberOnNextListener, context, true),
@@ -164,7 +164,7 @@ public class IntelligentDiagnosisModelImpl  implements IntelligentDiagnosisModel
 
             @Override
             public void onError(Throwable e) {
-                callBack.equals(e.getMessage());
+               callBack.onError(e.getMessage());
             }
         };
         MealNetRequestModelImpl.getInstance().whiteListDiagnosis(new MealProgressSubscriber<MealCodeData>(bindSubscriberOnNextListener, context, true),
@@ -184,7 +184,7 @@ public class IntelligentDiagnosisModelImpl  implements IntelligentDiagnosisModel
 
             @Override
             public void onError(Throwable e) {
-                callBack.equals(e.getMessage());
+               callBack.onError(e.getMessage());
             }
         };
         MealNetRequestModelImpl.getInstance().readCardStatus(new MealProgressSubscriber<MealCodeData>(bindSubscriberOnNextListener, context, true),

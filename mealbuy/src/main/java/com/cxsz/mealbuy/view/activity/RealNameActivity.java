@@ -238,4 +238,9 @@ public class RealNameActivity extends BaseActivity implements View.OnClickListen
     public void showErrorInfo(String info) {
         ToastUtil.show(RealNameActivity.this, info);
     }
+
+    @Override
+    public void showErrorInfo(String tag, String info) {
+
+    }
 }

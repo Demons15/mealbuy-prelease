@@ -407,5 +407,75 @@ public class MealNetRequestModelImpl implements MealNetRequestModel {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
     }
-    
+
+    public void queryVoiceWhiteList(MealProgressSubscriber<MealCodeData> subscriber, String type, String msisdn) {
+        Map<String, String> map = new HashMap<>();
+        map.put("appId", MealInfoHelper.getInstance().getMealAppId());
+        map.put("timestamp", MealCommonUtils.getTime());
+        map.put("signature", "");
+        map.put("nonceStr", MealInfoHelper.getInstance().getMealNonceStr());
+        map.put("type", type);
+        map.put("msisdn", msisdn);
+        List<String> ignoreParamNames = new ArrayList<>();
+        ignoreParamNames.add("signature");
+        String sign = NetSignUtil.sign(map, ignoreParamNames, MealInfoHelper.getInstance().getMealSecret());
+        map.put("signature", sign);
+        RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(map));
+        networkService.queryVoiceWhiteList(body)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /***
+     *
+     * @param subscriber
+     * @param type  传入的参数类型：1 物联网卡号 2 imei 3 imsi
+     * @param msisdn 物联网卡号
+     * @param operType  add 新增  del 删除
+     * @param phone  添加的白名单的手机号码多个以”,”隔开
+     * @return
+     */
+    public void addOrDelVoiceWhiteManager(MealProgressSubscriber<MealCodeData> subscriber, String type, String msisdn, String operType, String phone) {
+        Map<String, String> map = new HashMap<>();
+        map.put("appId", MealInfoHelper.getInstance().getMealAppId());
+        map.put("timestamp", MealCommonUtils.getTime());
+        map.put("signature", "");
+        map.put("nonceStr", MealInfoHelper.getInstance().getMealNonceStr());
+        map.put("type", type);
+        map.put("msisdn", msisdn);
+        map.put("operType", operType);
+        map.put("phone", phone);
+        List<String> ignoreParamNames = new ArrayList<>();
+        ignoreParamNames.add("signature");
+        String sign = NetSignUtil.sign(map, ignoreParamNames, MealInfoHelper.getInstance().getMealSecret());
+        map.put("signature", sign);
+        RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(map));
+        networkService.addOrDelVoiceWhiteManager(body)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    public void queryAddWhiteCount(MealProgressSubscriber<MealCodeData> subscriber, String type, String msisdn) {
+        Map<String, String> map = new HashMap<>();
+        map.put("appId", MealInfoHelper.getInstance().getMealAppId());
+        map.put("timestamp", MealCommonUtils.getTime());
+        map.put("signature", "");
+        map.put("nonceStr", MealInfoHelper.getInstance().getMealNonceStr());
+        map.put("type", type);
+        map.put("msisdn", msisdn);
+        List<String> ignoreParamNames = new ArrayList<>();
+        ignoreParamNames.add("signature");
+        String sign = NetSignUtil.sign(map, ignoreParamNames, MealInfoHelper.getInstance().getMealSecret());
+        map.put("signature", sign);
+        RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(map));
+        networkService.queryAddWhiteCount(body)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
 }

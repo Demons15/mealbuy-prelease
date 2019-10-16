@@ -153,6 +153,11 @@ public class BusinessManagementActivity extends BaseActivity implements AdapterV
     }
 
     @Override
+    public void showErrorInfo(String tag, String info) {
+
+    }
+
+    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             finish();
