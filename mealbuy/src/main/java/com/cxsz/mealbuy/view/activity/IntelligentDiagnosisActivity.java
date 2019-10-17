@@ -171,7 +171,7 @@ public class IntelligentDiagnosisActivity extends BaseActivity implements Intell
         if (MealInfoHelper.getInstance().getNumber() != null) {
             //查询卡的基本信息
             mineMealPresenter.RequestSimCardMealInfo(IntelligentDiagnosisActivity.this, MealInfoHelper.getInstance().getNumber());
-            intelligentDiagnosisPresenter.RequestRealNameDiagnosis(MealInfoHelper.getInstance().getNumber());
+            diagnosis();
         }
         leftArea.setOnClickListener(this);
         reDiagnosis.setOnClickListener(this);
@@ -187,9 +187,271 @@ public class IntelligentDiagnosisActivity extends BaseActivity implements Intell
         }
     }
 
+    @Override
+    public <T> void ResponseSimCardMealInfo(T t) {
+        bodyBean = (MealInfoBean.BodyBean) t;
+        if (null != iccIdNumber) {
+            iccIdNumber.setText(bodyBean.getIccid());
+        }
+        reDiagnosis.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
+        reDiagnosis.getPaint().setAntiAlias(true);
+        diagnosisAnim();
+    }
+
+    @Override
+    public <T> void ResponseSimCardMealList(T t) {
+
+    }
+
+    @Override
+    public <T> void ResponseRealNameDiagnosis(T t) {
+        MealCodeData codeData = (MealCodeData) t;
+        if (null == states || null == realNameAuthenticationNotice || null == realNameAuthentication
+                || null == real_name_authentication_result_area || null == real_name_authentication_result || null == intelligentDiagnosisPresenter) {
+            return;
+        }
+        states.append(codeData.getCode());
+        realNameAuthenticationNotice.setVisibility(View.GONE);
+        realNameAuthentication.setVisibility(View.VISIBLE);
+        if (codeData.getCode() == 1) {
+            real_name_authentication_result_area.setVisibility(View.GONE);
+            realNameAuthentication.setImageResource(R.mipmap.success_icon);
+        } else {
+            if (codeData.getCode() == 0) {
+                realNameAuthentication.setImageResource(R.mipmap.failure_icon);
+            } else {
+                realNameAuthentication.setImageResource(R.mipmap.problem_icon);
+            }
+            real_name_authentication_result_area.setVisibility(View.VISIBLE);
+            real_name_authentication_result.setText(codeData.getMessage() + "");
+            finishDiagnosis(0);
+        }
+        intelligentDiagnosisPresenter.RequestCardPackageDiagnosis(MealInfoHelper.getInstance().getNumber());
+        LogUtil.setTagE("Diagnosis", codeData.toString());
+    }
+
+    @Override
+    public <T> void ResponseCardPackageDiagnosis(T t) {
+        MealCodeData codeData = (MealCodeData) t;
+        if (null == states || null == diagnosisOfCardPackageNotice || null == diagnosisOfCardPackage
+                || null == diagnosis_of_card_package_result_area || null == diagnosis_of_card_package_result || null == intelligentDiagnosisPresenter) {
+            return;
+        }
+        states.append(codeData.getCode());
+        diagnosisOfCardPackageNotice.setVisibility(View.GONE);
+        diagnosisOfCardPackage.setVisibility(View.VISIBLE);
+        if (codeData.getCode() == 1) {
+            diagnosis_of_card_package_result_area.setVisibility(View.GONE);
+            diagnosisOfCardPackage.setImageResource(R.mipmap.success_icon);
+
+        } else {
+            if (codeData.getCode() == 0) {
+                diagnosisOfCardPackage.setImageResource(R.mipmap.failure_icon);
+            } else {
+                diagnosisOfCardPackage.setImageResource(R.mipmap.problem_icon);
+            }
+            diagnosis_of_card_package_result_area.setVisibility(View.VISIBLE);
+            diagnosis_of_card_package_result.setText(codeData.getMessage() + "");
+            finishDiagnosis(1);
+        }
+        intelligentDiagnosisPresenter.RequestSynchronizationCardStatus(MealInfoHelper.getInstance().getNumber());
+        LogUtil.setTagE("Diagnosis", codeData.toString());
+    }
+
+    @Override
+    public <T> void ResponseSynchronizationCardStatus(T t) {
+        MealCodeData codeData = (MealCodeData) t;
+        if (null == states || null == activationStateNotice || null == activationState
+                || null == activation_state_result_area || null == activation_state_result || null == intelligentDiagnosisPresenter) {
+            return;
+        }
+        activationStateNotice.setVisibility(View.GONE);
+        activationState.setVisibility(View.VISIBLE);
+        if (codeData.getCode() == 1) {
+            activation_state_result_area.setVisibility(View.GONE);
+            activationState.setImageResource(R.mipmap.success_icon);
+        } else {
+            if (codeData.getCode() == 0) {
+                activationState.setImageResource(R.mipmap.failure_icon);
+            } else {
+                activationState.setImageResource(R.mipmap.problem_icon);
+            }
+            finishDiagnosis(2);
+            activation_state_result_area.setVisibility(View.VISIBLE);
+            activation_state_result.setText(codeData.getMessage() + "");
+        }
+        intelligentDiagnosisPresenter.RequestUpdateVoiceData(MealInfoHelper.getInstance().getNumber());
+        states.append(codeData.getCode());
+        LogUtil.setTagE("Diagnosis", codeData.toString());
+    }
+
+    @Override
+    public <T> void ResponseUpdateVoiceData(T t) {
+        MealCodeData codeData = (MealCodeData) t;
+        if (null == states || null == updateVoiceDataNotice || null == updateVoiceData
+                || null == update_voice_data_result_area || null == update_voice_data_result || null == intelligentDiagnosisPresenter) {
+            return;
+        }
+        states.append(codeData.getCode());
+        updateVoiceDataNotice.setVisibility(View.GONE);
+        updateVoiceData.setVisibility(View.VISIBLE);
+        if (codeData.getCode() == 1) {
+            update_voice_data_result_area.setVisibility(View.GONE);
+            updateVoiceData.setImageResource(R.mipmap.success_icon);
+        } else {
+            if (codeData.getCode() == 0) {
+                updateVoiceData.setImageResource(R.mipmap.failure_icon);
+            } else {
+                updateVoiceData.setImageResource(R.mipmap.problem_icon);
+            }
+            finishDiagnosis(3);
+            update_voice_data_result_area.setVisibility(View.VISIBLE);
+            update_voice_data_result.setText(codeData.getMessage() + "");
+        }
+        intelligentDiagnosisPresenter.RequestUpdateTrafficData(MealInfoHelper.getInstance().getNumber());
+        LogUtil.setTagE("Diagnosis", codeData.toString());
+    }
+
+    @Override
+    public <T> void ResponseUpdateTrafficData(T t) {
+        MealCodeData codeData = (MealCodeData) t;
+        if (null == states || null == speechUsageDetectionNotice || null == speechUsageDetection
+                || null == speech_usage_detection_result_area || null == speech_usage_detection_result || null == intelligentDiagnosisPresenter) {
+            return;
+        }
+        states.append(codeData.getCode());
+        speechUsageDetectionNotice.setVisibility(View.GONE);
+        speechUsageDetection.setVisibility(View.VISIBLE);
+        if (codeData.getCode() == 1) {
+            speech_usage_detection_result_area.setVisibility(View.GONE);
+            speechUsageDetection.setImageResource(R.mipmap.success_icon);
+        } else {
+            if (codeData.getCode() == 0) {
+                speechUsageDetection.setImageResource(R.mipmap.failure_icon);
+            } else {
+                speechUsageDetection.setImageResource(R.mipmap.problem_icon);
+            }
+            finishDiagnosis(4);
+            speech_usage_detection_result_area.setVisibility(View.VISIBLE);
+            speech_usage_detection_result.setText(codeData.getMessage() + "");
+        }
+        intelligentDiagnosisPresenter.RequestFlowDetection(MealInfoHelper.getInstance().getNumber());
+        LogUtil.setTagE("Diagnosis", codeData.toString());
+    }
+
+    @Override
+    public <T> void ResponseFlowDetection(T t) {
+        MealCodeData codeData = (MealCodeData) t;
+        if (null == states || null == updateTrafficDataNotice || null == updateTrafficData
+                || null == update_traffic_data_result_area || null == update_traffic_data_result || null == intelligentDiagnosisPresenter) {
+            return;
+        }
+        states.append(codeData.getCode());
+        updateTrafficDataNotice.setVisibility(View.GONE);
+        updateTrafficData.setVisibility(View.VISIBLE);
+        if (codeData.getCode() == 1) {
+            update_traffic_data_result_area.setVisibility(View.GONE);
+            updateTrafficData.setImageResource(R.mipmap.success_icon);
+        } else {
+            if (codeData.getCode() == 0) {
+                updateTrafficData.setImageResource(R.mipmap.failure_icon);
+            } else {
+                updateTrafficData.setImageResource(R.mipmap.problem_icon);
+            }
+            finishDiagnosis(5);
+            update_traffic_data_result_area.setVisibility(View.VISIBLE);
+            update_traffic_data_result.setText(codeData.getMessage() + "");
+        }
+        intelligentDiagnosisPresenter.RequestSpeechDetection(MealInfoHelper.getInstance().getNumber());
+        LogUtil.setTagE("Diagnosis", codeData.toString());
+    }
+
+    @Override
+    public <T> void ResponseSpeechDetection(T t) {
+        MealCodeData codeData = (MealCodeData) t;
+        if (null == states || null == flowUsageDetectionNotice || null == flowUsageDetection
+                || null == flow_usage_detection_result_area || null == flow_usage_detection_result || null == intelligentDiagnosisPresenter) {
+            return;
+        }
+        states.append(codeData.getCode());
+        flowUsageDetectionNotice.setVisibility(View.GONE);
+        flowUsageDetection.setVisibility(View.VISIBLE);
+        if (codeData.getCode() == 1) {
+            flow_usage_detection_result_area.setVisibility(View.GONE);
+            flowUsageDetection.setImageResource(R.mipmap.success_icon);
+        } else {
+            if (codeData.getCode() == 0) {
+                flowUsageDetection.setImageResource(R.mipmap.failure_icon);
+            } else {
+                flowUsageDetection.setImageResource(R.mipmap.problem_icon);
+            }
+            finishDiagnosis(6);
+            flow_usage_detection_result_area.setVisibility(View.VISIBLE);
+            flow_usage_detection_result.setText(codeData.getMessage() + "");
+        }
+        intelligentDiagnosisPresenter.RequestWhiteListDiagnosis(MealInfoHelper.getInstance().getNumber());
+        LogUtil.setTagE("Diagnosis", codeData.toString());
+    }
+
+    @Override
+    public <T> void ResponseWhiteListDiagnosis(T t) {
+        MealCodeData codeData = (MealCodeData) t;
+        if (null == states || null == whiteListDiagnosisNotice || null == whiteListDiagnosis
+                || null == white_list_diagnosis_result_area || null == white_list_diagnosis_result || null == intelligentDiagnosisPresenter) {
+            return;
+        }
+        states.append(codeData.getCode());
+        whiteListDiagnosisNotice.setVisibility(View.GONE);
+        whiteListDiagnosis.setVisibility(View.VISIBLE);
+        if (codeData.getCode() == 1) {
+            white_list_diagnosis_result_area.setVisibility(View.GONE);
+            whiteListDiagnosis.setImageResource(R.mipmap.success_icon);
+        } else {
+            if (codeData.getCode() == 0) {
+                whiteListDiagnosis.setImageResource(R.mipmap.failure_icon);
+            } else {
+                whiteListDiagnosis.setImageResource(R.mipmap.problem_icon);
+            }
+            finishDiagnosis(7);
+            white_list_diagnosis_result_area.setVisibility(View.VISIBLE);
+            white_list_diagnosis_result.setText(codeData.getMessage() + "");
+        }
+        intelligentDiagnosisPresenter.RequestReadCardStatus(MealInfoHelper.getInstance().getNumber());
+        LogUtil.setTagE("Diagnosis", codeData.toString());
+    }
+
+    @Override
+    public <T> void ResponseReadCardStatus(T t) {
+        MealCodeData codeData = (MealCodeData) t;
+        if (null == states || null == cardDiagnosisNotice || null == cardDiagnosis
+                || null == card_diagnosis_notice_result_area || null == card_diagnosis_notice_result || null == intelligentDiagnosisPresenter) {
+            return;
+        }
+        states.append(codeData.getCode());
+        cardDiagnosisNotice.setVisibility(View.GONE);
+        cardDiagnosis.setVisibility(View.VISIBLE);
+        if (codeData.getCode() == 1) {
+            card_diagnosis_notice_result_area.setVisibility(View.GONE);
+            cardDiagnosis.setImageResource(R.mipmap.success_icon);
+        } else {
+            if (codeData.getCode() == 0) {
+                cardDiagnosis.setImageResource(R.mipmap.failure_icon);
+            } else {
+                cardDiagnosis.setImageResource(R.mipmap.problem_icon);
+            }
+            card_diagnosis_notice_result_area.setVisibility(View.VISIBLE);
+            card_diagnosis_notice_result.setText(codeData.getMessage() + "");
+        }
+        LogUtil.setTagE("Diagnosis", codeData.toString());
+        finishDiagnosis(8);
+    }
+
+    //诊断结果右侧状态的显示
     private void diagnosis() {
         result_normal_area.setVisibility(View.GONE);
         result_unusual_area.setVisibility(View.GONE);
+
+
         realNameAuthenticationNotice.setVisibility(View.VISIBLE);
         realNameAuthentication.setVisibility(View.GONE);
 
@@ -202,14 +464,14 @@ public class IntelligentDiagnosisActivity extends BaseActivity implements Intell
         updateVoiceDataNotice.setVisibility(View.VISIBLE);
         updateVoiceData.setVisibility(View.GONE);
 
-        speechUsageDetectionNotice.setVisibility(View.VISIBLE);
-        speechUsageDetection.setVisibility(View.GONE);
-
         updateTrafficDataNotice.setVisibility(View.VISIBLE);
         updateTrafficData.setVisibility(View.GONE);
 
         flowUsageDetectionNotice.setVisibility(View.VISIBLE);
         flowUsageDetection.setVisibility(View.GONE);
+
+        speechUsageDetectionNotice.setVisibility(View.VISIBLE);
+        speechUsageDetection.setVisibility(View.GONE);
 
         whiteListDiagnosisNotice.setVisibility(View.VISIBLE);
         whiteListDiagnosis.setVisibility(View.GONE);
@@ -403,256 +665,6 @@ public class IntelligentDiagnosisActivity extends BaseActivity implements Intell
     }
 
     @Override
-    public <T> void ResponseRealNameDiagnosis(T t) {
-        MealCodeData codeData = (MealCodeData) t;
-        if (null == states || null == realNameAuthenticationNotice || null == realNameAuthentication
-                || null == real_name_authentication_result_area || null == real_name_authentication_result || null == intelligentDiagnosisPresenter) {
-            return;
-        }
-        states.append(codeData.getCode());
-        realNameAuthenticationNotice.setVisibility(View.GONE);
-        realNameAuthentication.setVisibility(View.VISIBLE);
-        if (codeData.getCode() == 1) {
-            real_name_authentication_result_area.setVisibility(View.GONE);
-            realNameAuthentication.setImageResource(R.mipmap.success_icon);
-            intelligentDiagnosisPresenter.RequestCardPackageDiagnosis(MealInfoHelper.getInstance().getNumber());
-        } else if (codeData.getCode() == 0) {
-            finishDiagnosis(0);
-            real_name_authentication_result_area.setVisibility(View.VISIBLE);
-            real_name_authentication_result.setText(codeData.getMessage() + "");
-            realNameAuthentication.setImageResource(R.mipmap.failure_icon);
-        } else {
-            real_name_authentication_result_area.setVisibility(View.VISIBLE);
-            real_name_authentication_result.setText(codeData.getMessage() + "");
-            realNameAuthentication.setImageResource(R.mipmap.problem_icon);
-            intelligentDiagnosisPresenter.RequestCardPackageDiagnosis(MealInfoHelper.getInstance().getNumber());
-        }
-        LogUtil.setTagE("Diagnosis", codeData.toString());
-    }
-
-    @Override
-    public <T> void ResponseCardPackageDiagnosis(T t) {
-        MealCodeData codeData = (MealCodeData) t;
-        if (null == states || null == diagnosisOfCardPackageNotice || null == diagnosisOfCardPackage
-                || null == diagnosis_of_card_package_result_area || null == diagnosis_of_card_package_result || null == intelligentDiagnosisPresenter) {
-            return;
-        }
-        states.append(codeData.getCode());
-        diagnosisOfCardPackageNotice.setVisibility(View.GONE);
-        diagnosisOfCardPackage.setVisibility(View.VISIBLE);
-        if (codeData.getCode() == 1) {
-            diagnosis_of_card_package_result_area.setVisibility(View.GONE);
-            diagnosisOfCardPackage.setImageResource(R.mipmap.success_icon);
-            intelligentDiagnosisPresenter.RequestSynchronizationCardStatus(MealInfoHelper.getInstance().getNumber());
-        } else if (codeData.getCode() == 0) {
-            finishDiagnosis(1);
-            diagnosis_of_card_package_result_area.setVisibility(View.VISIBLE);
-            diagnosis_of_card_package_result.setText(codeData.getMessage() + "");
-            diagnosisOfCardPackage.setImageResource(R.mipmap.failure_icon);
-        } else {
-            diagnosis_of_card_package_result_area.setVisibility(View.VISIBLE);
-            diagnosis_of_card_package_result.setText(codeData.getMessage() + "");
-            diagnosisOfCardPackage.setImageResource(R.mipmap.problem_icon);
-            intelligentDiagnosisPresenter.RequestSynchronizationCardStatus(MealInfoHelper.getInstance().getNumber());
-        }
-        LogUtil.setTagE("Diagnosis", codeData.toString());
-    }
-
-    @Override
-    public <T> void ResponseSynchronizationCardStatus(T t) {
-        MealCodeData codeData = (MealCodeData) t;
-        if (null == states || null == activationStateNotice || null == activationState
-                || null == activation_state_result_area || null == activation_state_result || null == intelligentDiagnosisPresenter) {
-            return;
-        }
-        activationStateNotice.setVisibility(View.GONE);
-        activationState.setVisibility(View.VISIBLE);
-        if (codeData.getCode() == 1) {
-            activation_state_result_area.setVisibility(View.GONE);
-            activationState.setImageResource(R.mipmap.success_icon);
-            intelligentDiagnosisPresenter.RequestUpdateVoiceData(MealInfoHelper.getInstance().getNumber());
-        } else if (codeData.getCode() == 0) {
-            finishDiagnosis(2);
-            activation_state_result_area.setVisibility(View.VISIBLE);
-            activation_state_result.setText(codeData.getMessage() + "");
-            activationState.setImageResource(R.mipmap.failure_icon);
-        } else {
-            activation_state_result_area.setVisibility(View.VISIBLE);
-            activation_state_result.setText(codeData.getMessage() + "");
-            activationState.setImageResource(R.mipmap.problem_icon);
-            intelligentDiagnosisPresenter.RequestUpdateVoiceData(MealInfoHelper.getInstance().getNumber());
-        }
-        states.append(codeData.getCode());
-        LogUtil.setTagE("Diagnosis", codeData.toString());
-    }
-
-    @Override
-    public <T> void ResponseUpdateVoiceData(T t) {
-        MealCodeData codeData = (MealCodeData) t;
-        if (null == states || null == updateVoiceDataNotice || null == updateVoiceData
-                || null == update_voice_data_result_area || null == update_voice_data_result || null == intelligentDiagnosisPresenter) {
-            return;
-        }
-        states.append(codeData.getCode());
-        updateVoiceDataNotice.setVisibility(View.GONE);
-        updateVoiceData.setVisibility(View.VISIBLE);
-        if (codeData.getCode() == 1) {
-            update_voice_data_result_area.setVisibility(View.GONE);
-            updateVoiceData.setImageResource(R.mipmap.success_icon);
-            intelligentDiagnosisPresenter.RequestUpdateTrafficData(MealInfoHelper.getInstance().getNumber());
-        } else if (codeData.getCode() == 0) {
-            finishDiagnosis(3);
-            update_voice_data_result_area.setVisibility(View.VISIBLE);
-            update_voice_data_result.setText(codeData.getMessage() + "");
-            updateVoiceData.setImageResource(R.mipmap.failure_icon);
-        } else {
-            update_voice_data_result_area.setVisibility(View.VISIBLE);
-            update_voice_data_result.setText(codeData.getMessage() + "");
-            updateVoiceData.setImageResource(R.mipmap.problem_icon);
-            intelligentDiagnosisPresenter.RequestUpdateTrafficData(MealInfoHelper.getInstance().getNumber());
-        }
-        LogUtil.setTagE("Diagnosis", codeData.toString());
-    }
-
-    @Override
-    public <T> void ResponseUpdateTrafficData(T t) {
-        MealCodeData codeData = (MealCodeData) t;
-        if (null == states || null == speechUsageDetectionNotice || null == speechUsageDetection
-                || null == speech_usage_detection_result_area || null == speech_usage_detection_result || null == intelligentDiagnosisPresenter) {
-            return;
-        }
-        states.append(codeData.getCode());
-        speechUsageDetectionNotice.setVisibility(View.GONE);
-        speechUsageDetection.setVisibility(View.VISIBLE);
-        if (codeData.getCode() == 1) {
-            speech_usage_detection_result_area.setVisibility(View.GONE);
-            speechUsageDetection.setImageResource(R.mipmap.success_icon);
-            intelligentDiagnosisPresenter.RequestFlowDetection(MealInfoHelper.getInstance().getNumber());
-        } else if (codeData.getCode() == 0) {
-            finishDiagnosis(4);
-            speech_usage_detection_result_area.setVisibility(View.VISIBLE);
-            speech_usage_detection_result.setText(codeData.getMessage() + "");
-            speechUsageDetection.setImageResource(R.mipmap.failure_icon);
-        } else {
-            speech_usage_detection_result_area.setVisibility(View.VISIBLE);
-            speech_usage_detection_result.setText(codeData.getMessage() + "");
-            speechUsageDetection.setImageResource(R.mipmap.problem_icon);
-            intelligentDiagnosisPresenter.RequestFlowDetection(MealInfoHelper.getInstance().getNumber());
-        }
-        LogUtil.setTagE("Diagnosis", codeData.toString());
-    }
-
-    @Override
-    public <T> void ResponseFlowDetection(T t) {
-        MealCodeData codeData = (MealCodeData) t;
-        if (null == states || null == updateTrafficDataNotice || null == updateTrafficData
-                || null == update_traffic_data_result_area || null == update_traffic_data_result || null == intelligentDiagnosisPresenter) {
-            return;
-        }
-        states.append(codeData.getCode());
-        updateTrafficDataNotice.setVisibility(View.GONE);
-        updateTrafficData.setVisibility(View.VISIBLE);
-        if (codeData.getCode() == 1) {
-            update_traffic_data_result_area.setVisibility(View.GONE);
-            updateTrafficData.setImageResource(R.mipmap.success_icon);
-            intelligentDiagnosisPresenter.RequestSpeechDetection(MealInfoHelper.getInstance().getNumber());
-        } else if (codeData.getCode() == 0) {
-            finishDiagnosis(5);
-            update_traffic_data_result_area.setVisibility(View.VISIBLE);
-            update_traffic_data_result.setText(codeData.getMessage() + "");
-            updateTrafficData.setImageResource(R.mipmap.failure_icon);
-        } else {
-            update_traffic_data_result_area.setVisibility(View.VISIBLE);
-            update_traffic_data_result.setText(codeData.getMessage() + "");
-            updateTrafficData.setImageResource(R.mipmap.problem_icon);
-            intelligentDiagnosisPresenter.RequestSpeechDetection(MealInfoHelper.getInstance().getNumber());
-        }
-        LogUtil.setTagE("Diagnosis", codeData.toString());
-    }
-
-    @Override
-    public <T> void ResponseSpeechDetection(T t) {
-        MealCodeData codeData = (MealCodeData) t;
-        if (null == states || null == flowUsageDetectionNotice || null == flowUsageDetection
-                || null == flow_usage_detection_result_area || null == flow_usage_detection_result || null == intelligentDiagnosisPresenter) {
-            return;
-        }
-        states.append(codeData.getCode());
-        flowUsageDetectionNotice.setVisibility(View.GONE);
-        flowUsageDetection.setVisibility(View.VISIBLE);
-        if (codeData.getCode() == 1) {
-            flow_usage_detection_result_area.setVisibility(View.GONE);
-            flowUsageDetection.setImageResource(R.mipmap.success_icon);
-            intelligentDiagnosisPresenter.RequestWhiteListDiagnosis(MealInfoHelper.getInstance().getNumber());
-        } else if (codeData.getCode() == 0) {
-            finishDiagnosis(6);
-            flow_usage_detection_result_area.setVisibility(View.VISIBLE);
-            flow_usage_detection_result.setText(codeData.getMessage() + "");
-            flowUsageDetection.setImageResource(R.mipmap.failure_icon);
-        } else {
-            flow_usage_detection_result_area.setVisibility(View.VISIBLE);
-            flow_usage_detection_result.setText(codeData.getMessage() + "");
-            flowUsageDetection.setImageResource(R.mipmap.problem_icon);
-            intelligentDiagnosisPresenter.RequestWhiteListDiagnosis(MealInfoHelper.getInstance().getNumber());
-        }
-        LogUtil.setTagE("Diagnosis", codeData.toString());
-    }
-
-    @Override
-    public <T> void ResponseWhiteListDiagnosis(T t) {
-        MealCodeData codeData = (MealCodeData) t;
-        if (null == states || null == whiteListDiagnosisNotice || null == whiteListDiagnosis
-                || null == white_list_diagnosis_result_area || null == white_list_diagnosis_result || null == intelligentDiagnosisPresenter) {
-            return;
-        }
-        states.append(codeData.getCode());
-        whiteListDiagnosisNotice.setVisibility(View.GONE);
-        whiteListDiagnosis.setVisibility(View.VISIBLE);
-        if (codeData.getCode() == 1) {
-            white_list_diagnosis_result_area.setVisibility(View.GONE);
-            whiteListDiagnosis.setImageResource(R.mipmap.success_icon);
-            intelligentDiagnosisPresenter.RequestReadCardStatus(MealInfoHelper.getInstance().getNumber());
-        } else if (codeData.getCode() == 0) {
-            finishDiagnosis(7);
-            white_list_diagnosis_result_area.setVisibility(View.VISIBLE);
-            white_list_diagnosis_result.setText(codeData.getMessage() + "");
-            whiteListDiagnosis.setImageResource(R.mipmap.failure_icon);
-        } else {
-            white_list_diagnosis_result_area.setVisibility(View.VISIBLE);
-            white_list_diagnosis_result.setText(codeData.getMessage() + "");
-            whiteListDiagnosis.setImageResource(R.mipmap.problem_icon);
-            intelligentDiagnosisPresenter.RequestReadCardStatus(MealInfoHelper.getInstance().getNumber());
-        }
-        LogUtil.setTagE("Diagnosis", codeData.toString());
-    }
-
-    @Override
-    public <T> void ResponseReadCardStatus(T t) {
-        MealCodeData codeData = (MealCodeData) t;
-        if (null == states || null == cardDiagnosisNotice || null == cardDiagnosis
-                || null == card_diagnosis_notice_result_area || null == card_diagnosis_notice_result || null == intelligentDiagnosisPresenter) {
-            return;
-        }
-        states.append(codeData.getCode());
-        cardDiagnosisNotice.setVisibility(View.GONE);
-        cardDiagnosis.setVisibility(View.VISIBLE);
-        if (codeData.getCode() == 1) {
-            card_diagnosis_notice_result_area.setVisibility(View.GONE);
-            cardDiagnosis.setImageResource(R.mipmap.success_icon);
-        } else if (codeData.getCode() == 0) {
-            card_diagnosis_notice_result_area.setVisibility(View.VISIBLE);
-            card_diagnosis_notice_result.setText(codeData.getMessage() + "");
-            cardDiagnosis.setImageResource(R.mipmap.failure_icon);
-        } else {
-            card_diagnosis_notice_result_area.setVisibility(View.VISIBLE);
-            card_diagnosis_notice_result.setText(codeData.getMessage() + "");
-            cardDiagnosis.setImageResource(R.mipmap.problem_icon);
-        }
-        LogUtil.setTagE("Diagnosis", codeData.toString());
-        finishDiagnosis(8);
-    }
-
-    @Override
     public void showLoadingView() {
 //        startProgressDialog();
     }
@@ -673,65 +685,68 @@ public class IntelligentDiagnosisActivity extends BaseActivity implements Intell
         if (tag.equals(MealConstants.RESPONSE_REAL_NAME_DIAGNOSIS)) {
             finishDiagnosis(0);
             real_name_authentication_result_area.setVisibility(View.VISIBLE);
-            real_name_authentication_result.setText(getResources().getString(R.string.real_name_authentication)+info + "");
+            real_name_authentication_result.setText(getResources().getString(R.string.real_name_authentication) + info + "");
+            realNameAuthenticationNotice.setVisibility(View.GONE);
+            realNameAuthentication.setVisibility(View.VISIBLE);
             realNameAuthentication.setImageResource(R.mipmap.failure_icon);
         } else if (tag.equals(MealConstants.RESPONSE_CARD_PACKAGE_DIAGNOSIS)) {
             finishDiagnosis(1);
             diagnosis_of_card_package_result_area.setVisibility(View.VISIBLE);
-            diagnosis_of_card_package_result.setText(getResources().getString(R.string.diagnosis_of_card_package)+info + "");
+            diagnosis_of_card_package_result.setText(getResources().getString(R.string.diagnosis_of_card_package) + info + "");
+            diagnosisOfCardPackageNotice.setVisibility(View.GONE);
+            diagnosisOfCardPackage.setVisibility(View.VISIBLE);
             diagnosisOfCardPackage.setImageResource(R.mipmap.failure_icon);
         } else if (tag.equals(MealConstants.RESPONSE_SYNCHRONIZATION_CARD_STATUS)) {
             finishDiagnosis(2);
             activation_state_result_area.setVisibility(View.VISIBLE);
-            activation_state_result.setText(getResources().getString(R.string.activation_state)+info + "");
+            activation_state_result.setText(getResources().getString(R.string.activation_state) + info + "");
+            activationStateNotice.setVisibility(View.GONE);
+            activationState.setVisibility(View.VISIBLE);
             activationState.setImageResource(R.mipmap.failure_icon);
         } else if (tag.equals(MealConstants.RESPONSE_UPDATE_VOICE_DATA)) {
             finishDiagnosis(3);
             update_voice_data_result_area.setVisibility(View.VISIBLE);
-            update_voice_data_result.setText(getResources().getString(R.string.update_voice_data)+info + "");
+            update_voice_data_result.setText(getResources().getString(R.string.update_voice_data) + info + "");
+            updateVoiceDataNotice.setVisibility(View.GONE);
+            updateVoiceData.setVisibility(View.VISIBLE);
             updateVoiceData.setImageResource(R.mipmap.failure_icon);
         } else if (tag.equals(MealConstants.RESPONSE_UPDATE_TRAFFIC_DATA)) {
             finishDiagnosis(4);
-            speech_usage_detection_result_area.setVisibility(View.VISIBLE);
-            speech_usage_detection_result.setText(getResources().getString(R.string.update_traffic_data)+info + "");
-            speechUsageDetection.setImageResource(R.mipmap.failure_icon);
+            update_traffic_data_result_area.setVisibility(View.VISIBLE);
+            update_traffic_data_result.setText(getResources().getString(R.string.update_traffic_data) + info + "");
+            updateTrafficDataNotice.setVisibility(View.GONE);
+            updateTrafficData.setVisibility(View.VISIBLE);
+            updateTrafficData.setImageResource(R.mipmap.failure_icon);
         } else if (tag.equals(MealConstants.RESPONSE_FLOW_DETECTION)) {
             finishDiagnosis(5);
-            update_traffic_data_result_area.setVisibility(View.VISIBLE);
-            update_traffic_data_result.setText(getResources().getString(R.string.flow_usage_detection)+info + "");
-            updateTrafficData.setImageResource(R.mipmap.failure_icon);
+            flow_usage_detection_result_area.setVisibility(View.VISIBLE);
+            flow_usage_detection_result.setText(getResources().getString(R.string.speech_usage_detection) + info + "");
+            flowUsageDetectionNotice.setVisibility(View.GONE);
+            flowUsageDetection.setVisibility(View.VISIBLE);
+            flowUsageDetection.setImageResource(R.mipmap.failure_icon);
         } else if (tag.equals(MealConstants.RESPONSE_SPEECH_DETECTION)) {
             finishDiagnosis(6);
-            flow_usage_detection_result_area.setVisibility(View.VISIBLE);
-            flow_usage_detection_result.setText(getResources().getString(R.string.speech_usage_detection)+info + "");
-            flowUsageDetection.setImageResource(R.mipmap.failure_icon);
+            speech_usage_detection_result_area.setVisibility(View.VISIBLE);
+            speech_usage_detection_result.setText(getResources().getString(R.string.speech_usage_detection) + info + "");
+            speechUsageDetectionNotice.setVisibility(View.GONE);
+            speechUsageDetection.setVisibility(View.VISIBLE);
+            speechUsageDetection.setImageResource(R.mipmap.failure_icon);
         } else if (tag.equals(MealConstants.RESPONSE_WHITE_LIST_DIAGNOSIS)) {
             finishDiagnosis(7);
             white_list_diagnosis_result_area.setVisibility(View.VISIBLE);
-            white_list_diagnosis_result.setText(getResources().getString(R.string.white_list_diagnosis)+info + "");
+            white_list_diagnosis_result.setText(getResources().getString(R.string.white_list_diagnosis) + info + "");
+            whiteListDiagnosisNotice.setVisibility(View.GONE);
+            whiteListDiagnosis.setVisibility(View.VISIBLE);
             whiteListDiagnosis.setImageResource(R.mipmap.failure_icon);
         } else if (tag.equals(MealConstants.RESPONSE_READ_CARD_STATUS)) {
             finishDiagnosis(8);
             card_diagnosis_notice_result_area.setVisibility(View.VISIBLE);
-            card_diagnosis_notice_result.setText(getResources().getString(R.string.card_diagnosis)+info + "");
+            card_diagnosis_notice_result.setText(getResources().getString(R.string.card_diagnosis) + info + "");
+            cardDiagnosisNotice.setVisibility(View.GONE);
+            cardDiagnosis.setVisibility(View.VISIBLE);
             cardDiagnosis.setImageResource(R.mipmap.failure_icon);
         }
         refreshDiagnosis(info);
     }
 
-    @Override
-    public <T> void ResponseSimCardMealInfo(T t) {
-        bodyBean = (MealInfoBean.BodyBean) t;
-        if (null != iccIdNumber) {
-            iccIdNumber.setText(bodyBean.getIccid());
-        }
-        reDiagnosis.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
-        reDiagnosis.getPaint().setAntiAlias(true);
-        diagnosisAnim();
-    }
-
-    @Override
-    public <T> void ResponseSimCardMealList(T t) {
-
-    }
 }

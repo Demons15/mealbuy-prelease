@@ -183,6 +183,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/wait_result"
+                                android:visibility="gone"
                                 android:textColor="#FF999999"
                                 android:textSize="@dimen/x24" />
 
@@ -220,8 +221,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/wait_result"
+                                android:visibility="gone"
                                 android:textColor="#FF999999"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/x24" />
 
                             <ImageView
                                 android:id="@+id/diagnosis_of_card_package"
@@ -257,8 +259,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/wait_result"
+                                android:visibility="gone"
                                 android:textColor="#FF999999"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/x24" />
 
                             <ImageView
                                 android:id="@+id/activation_state"
@@ -294,8 +297,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/wait_result"
+                                android:visibility="gone"
                                 android:textColor="#FF999999"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/x24" />
 
                             <ImageView
                                 android:id="@+id/update_voice_data"
@@ -331,8 +335,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/wait_result"
+                                android:visibility="gone"
                                 android:textColor="#FF999999"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/x24" />
 
                             <ImageView
                                 android:id="@+id/speech_usage_detection"
@@ -368,8 +373,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/wait_result"
+                                android:visibility="gone"
                                 android:textColor="#FF999999"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/x24" />
 
                             <ImageView
                                 android:id="@+id/update_traffic_data"
@@ -405,8 +411,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/wait_result"
+                                android:visibility="gone"
                                 android:textColor="#FF999999"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/x24" />
 
                             <ImageView
                                 android:id="@+id/flow_usage_detection"
@@ -442,8 +449,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/wait_result"
+                                android:visibility="gone"
                                 android:textColor="#FF999999"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/x24" />
 
                             <ImageView
                                 android:id="@+id/white_list_diagnosis"
@@ -480,8 +488,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/wait_result"
+                                android:visibility="gone"
                                 android:textColor="#FF999999"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/x24" />
 
                             <ImageView
                                 android:id="@+id/card_diagnosis"
