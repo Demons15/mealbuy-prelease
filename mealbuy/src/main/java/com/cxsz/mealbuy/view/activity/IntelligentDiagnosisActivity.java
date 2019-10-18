@@ -448,6 +448,7 @@ public class IntelligentDiagnosisActivity extends BaseActivity implements Intell
 
     //诊断结果右侧状态的显示
     private void diagnosis() {
+        states.delete(0,states.length());
         result_normal_area.setVisibility(View.GONE);
         result_unusual_area.setVisibility(View.GONE);
 

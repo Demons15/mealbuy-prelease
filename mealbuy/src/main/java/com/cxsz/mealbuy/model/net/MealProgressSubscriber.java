@@ -77,7 +77,11 @@ public class MealProgressSubscriber<T> extends Subscriber<T> implements MealProg
             errorInfo = "网络连接异常!";
             LogUtil.setTagE("NetError:", errorInfo);
             Toast.makeText(context, errorInfo, Toast.LENGTH_SHORT).show();
-        } else {
+        }  else if (e instanceof NoNetWorkException) {
+            errorInfo = "网络不可用!";
+            LogUtil.setTagE("NetError:", errorInfo);
+            Toast.makeText(context, errorInfo, Toast.LENGTH_SHORT).show();
+        }else {
             errorInfo = e.getMessage();
             LogUtil.setTagE("NetError:", errorInfo);
             Toast.makeText(context, errorInfo, Toast.LENGTH_SHORT).show();
