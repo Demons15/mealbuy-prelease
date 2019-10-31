@@ -3,7 +3,7 @@
     android:id="@+id/tag_des_info"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginRight="@dimen/x20"
+    android:layout_marginRight="10dp"
     android:text="推荐套餐"
     android:textColor="#4D4D4D"
-    android:textSize="@dimen/x24" />
+    android:textSize="12sp" />

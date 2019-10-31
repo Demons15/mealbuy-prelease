@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/number_info_area"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/x72"
-    android:layout_marginBottom="@dimen/x20"
-    android:layout_marginRight="@dimen/x20"
+    android:layout_height="36dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginRight="10dp"
     android:background="@drawable/choose_phone_number_normal_shape"
     android:gravity="center"
     android:orientation="vertical">
@@ -15,5 +15,5 @@
         android:layout_height="wrap_content"
         android:text="17220350005"
         android:textColor="@color/color_333333"
-        android:textSize="@dimen/x32" />
+        android:textSize="16sp" />
 </LinearLayout>

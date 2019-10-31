@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/x176"
-    android:layout_marginBottom="@dimen/x20"
+    android:layout_height="88dp"
+    android:layout_marginBottom="10dp"
     android:background="@drawable/have_no_use_shape">
 
     <TextView
@@ -12,13 +12,13 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:background="@mipmap/package_take_effect_time"
-        android:paddingBottom="@dimen/x2"
-        android:paddingLeft="@dimen/x20"
-        android:paddingRight="@dimen/x20"
-        android:paddingTop="@dimen/x2"
+        android:paddingBottom="1dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="1dp"
         android:text="2018/12/16生效"
         android:textColor="@color/white"
-        android:textSize="@dimen/x22" />
+        android:textSize="11sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -30,17 +30,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="@dimen/x28"
-            android:layout_marginTop="@dimen/x26"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="13dp"
             android:text="无限流量+100分钟/月 1年有效期年有效期"
             android:textColor="@color/color_333333"
-            android:textSize="@dimen/x24" />
+            android:textSize="12sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/x28"
-            android:layout_marginTop="@dimen/x20"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -48,23 +48,23 @@
                 android:layout_height="wrap_content"
                 android:text="包含:"
                 android:textColor="#4D4D4D"
-                android:textSize="@dimen/x24" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/meal_include_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/x15"
+                android:layout_marginLeft="8dp"
                 android:text="流量100M+语音10分钟/月"
                 android:textColor="#4D4D4D"
-                android:textSize="@dimen/x24" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/x28"
-            android:layout_marginTop="@dimen/x4"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="2dp"
             android:orientation="horizontal">
 
             <TextView
@@ -72,16 +72,16 @@
                 android:layout_height="wrap_content"
                 android:text="有效期:"
                 android:textColor="#4D4D4D"
-                android:textSize="@dimen/x24" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/term_of_validity_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/x15"
+                android:layout_marginLeft="8dp"
                 android:text="1个月"
                 android:textColor="#4D4D4D"
-                android:textSize="@dimen/x24" />
+                android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

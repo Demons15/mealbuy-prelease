@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/x100"
+    android:layout_height="50dp"
     android:background="@color/white"
     android:orientation="vertical">
 
@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="left"
-            android:layout_marginLeft="@dimen/x26"
+            android:layout_marginLeft="13dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -30,20 +30,20 @@
                 android:id="@+id/contact_phone_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/x20"
+                android:layout_marginLeft="10dp"
                 android:text="13254548545"
                 android:textColor="@color/color_333333"
-                android:textSize="@dimen/x28" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/contact_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/x20"
+                android:layout_marginLeft="10dp"
                 android:text="田娟"
                 android:visibility="gone"
                 android:textColor="@color/color_333333"
-                android:textSize="@dimen/x28" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|center_vertical"
-            android:layout_marginRight="@dimen/x34"
+            android:layout_marginRight="17dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -66,15 +66,15 @@
                 android:id="@+id/opened_status_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/x12"
+                android:layout_marginLeft="6dp"
                 android:text="已开通"
                 android:textColor="@color/color_4386FF"
-                android:textSize="@dimen/x28" />
+                android:textSize="14sp" />
         </LinearLayout>
     </FrameLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x1"
+        android:layout_height="1dp"
         android:background="@drawable/tb_line_shape" />
 </LinearLayout>

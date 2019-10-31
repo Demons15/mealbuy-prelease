@@ -4,8 +4,8 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:layout_width="@dimen/x180"
-        android:layout_height="@dimen/x200"
+        android:layout_width="90dp"
+        android:layout_height="100dp"
         android:layout_centerInParent="true"
         android:background="@drawable/loading_shape">
 
@@ -38,10 +38,10 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/x18"
+                android:layout_marginTop="9dp"
                 android:text="数据加载中.."
                 android:textColor="#787878"
-                android:textSize="@dimen/x22" />
+                android:textSize="11sp" />
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

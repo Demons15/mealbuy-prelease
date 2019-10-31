@@ -19,7 +19,7 @@
         <RelativeLayout
             android:id="@+id/notice_area"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/x240"
+            android:layout_height="120dp"
             android:layout_alignParentTop="true"
             android:background="@mipmap/rectangle"
             android:visibility="gone">
@@ -28,13 +28,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:paddingLeft="@dimen/x40"
-                android:paddingRight="@dimen/x40">
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/x80"
-                    android:layout_marginTop="@dimen/x4">
+                    android:layout_height="40dp"
+                    android:layout_marginTop="2dp">
 
                     <TextView
                         android:id="@+id/card_number"
@@ -44,11 +44,11 @@
                         android:layout_centerVertical="true"
                         android:text="17220350005"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/x52" />
+                        android:textSize="26sp" />
 
                     <LinearLayout
-                        android:layout_width="@dimen/x160"
-                        android:layout_height="@dimen/x52"
+                        android:layout_width="80dp"
+                        android:layout_height="26dp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:background="@drawable/copy_shape"
@@ -61,13 +61,13 @@
                             android:gravity="center"
                             android:text="复制卡号"
                             android:textColor="#3E94E0"
-                            android:textSize="@dimen/x22" />
+                            android:textSize="11sp" />
                     </LinearLayout>
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/x80">
+                    android:layout_height="40dp">
 
                     <TextView
                         android:id="@+id/iccid_number"
@@ -77,11 +77,11 @@
                         android:layout_centerVertical="true"
                         android:text="ICCID：89860 2F219 18800 10314"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/x26" />
+                        android:textSize="13sp" />
 
                     <LinearLayout
-                        android:layout_width="@dimen/x160"
-                        android:layout_height="@dimen/x52"
+                        android:layout_width="80dp"
+                        android:layout_height="26dp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:background="@drawable/copy_shape"
@@ -94,7 +94,7 @@
                             android:gravity="center"
                             android:text="复制后四位"
                             android:textColor="#3E94E0"
-                            android:textSize="@dimen/x22" />
+                            android:textSize="11sp" />
                     </LinearLayout>
                 </RelativeLayout>
             </LinearLayout>

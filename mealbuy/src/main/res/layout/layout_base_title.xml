@@ -8,12 +8,12 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x88"
-        android:layout_marginTop="@dimen/x44">
+        android:layout_height="44dp"
+        android:layout_marginTop="22dp">
 
         <RelativeLayout
             android:id="@+id/base_left_iv"
-            android:layout_width="@dimen/x120"
+            android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true">
 
@@ -23,10 +23,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/x33"
+                android:layout_marginLeft="17dp"
                 android:text="@string/dialog_return"
                 android:textColor="#485465"
-                android:textSize="@dimen/x29"
+                android:textSize="14sp"
                 android:visibility="gone" />
 
             <ImageView
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/x38"
+                android:layout_marginLeft="19dp"
                 android:src="@mipmap/back_icon" />
         </RelativeLayout>
 
@@ -47,7 +47,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:textColor="@color/main_text_color"
-            android:textSize="@dimen/x32" />
+            android:textSize="16sp" />
 
         <ImageView
             android:id="@+id/add_contact_area"
@@ -55,14 +55,14 @@
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:paddingLeft="@dimen/x17"
-            android:paddingRight="@dimen/x17"
+            android:paddingLeft="9dp"
+            android:paddingRight="9dp"
             android:src="@mipmap/mail_list_add_bt"
             android:visibility="gone" />
 
         <RelativeLayout
             android:id="@+id/right_area"
-            android:layout_width="@dimen/x120"
+            android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true">
 
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/x38" />
+                android:layout_marginRight="19dp" />
 
             <TextView
                 android:id="@+id/base_right_tv"
@@ -80,10 +80,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/x33"
+                android:layout_marginRight="17dp"
                 android:text="保存"
                 android:textColor="#287FDF"
-                android:textSize="@dimen/x32"
+                android:textSize="16sp"
                 android:visibility="gone" />
         </RelativeLayout>
     </RelativeLayout>

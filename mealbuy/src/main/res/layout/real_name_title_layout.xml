@@ -5,11 +5,11 @@
     android:layout_height="wrap_content"
     android:background="#0575D8"
     android:orientation="vertical"
-    android:paddingTop="@dimen/x44">
+    android:paddingTop="22dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x88">
+        android:layout_height="44dp">
 
         <LinearLayout
             android:id="@+id/main_left_iv"
@@ -17,8 +17,8 @@
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:orientation="horizontal"
-            android:paddingLeft="@dimen/x40"
-            android:paddingRight="@dimen/x40">
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="@dimen/x32" />
+            android:textSize="16sp" />
 
 
         <LinearLayout
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/x32"
+            android:layout_marginRight="16dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:visibility="gone">
@@ -52,10 +52,10 @@
                 android:id="@+id/alert_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/x12"
+                android:layout_marginRight="6dp"
                 android:text="收起信息"
                 android:textColor="@color/white"
-                android:textSize="@dimen/x26" />
+                android:textSize="13sp" />
 
             <ImageView
                 android:layout_width="wrap_content"

@@ -11,10 +11,10 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/x684">
+            android:layout_height="342dp">
 
             <LinearLayout
-                android:layout_width="@dimen/x606"
+                android:layout_width="303dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:background="@drawable/real_name_shape"
@@ -24,36 +24,36 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/x44"
+                    android:layout_marginTop="22dp"
                     android:text="当前卡未实名认证！"
                     android:textColor="@color/color_333333"
-                    android:textSize="@dimen/x34" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/x32"
-                    android:layout_marginRight="@dimen/x32"
-                    android:layout_marginTop="@dimen/x24"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="12dp"
                     android:text="尊敬的用户：您的SIM卡暂未实名认证，根据国家工信部要求：在用户办理入网手续时，必须采用十八周岁以上二代身份进行实名认证。"
                     android:textColor="#4D4D4D"
-                    android:textSize="@dimen/x24" />
+                    android:textSize="12sp" />
 
                 <Button
                     android:id="@+id/right_now_real_name"
-                    android:layout_width="@dimen/x454"
-                    android:layout_height="@dimen/x100"
-                    android:layout_marginTop="@dimen/x48"
-                    android:layout_marginBottom="@dimen/x48"
+                    android:layout_width="227dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
                     android:background="@drawable/real_name_button_shape"
                     android:gravity="center"
                     android:text="立即认证"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/x34" />
+                    android:textSize="17sp" />
             </LinearLayout>
 
             <ImageView
-                android:layout_marginTop="@dimen/x10"
+                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -63,10 +63,10 @@
 
         <ImageView
             android:id="@+id/close"
-            android:layout_width="@dimen/x60"
-            android:layout_height="@dimen/x60"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/x48"
+            android:layout_marginTop="24dp"
             android:src="@mipmap/close_window" />
     </LinearLayout>
 </RelativeLayout>
