@@ -14,6 +14,9 @@ import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.jessyan.autosize.AutoSize;
+import me.jessyan.autosize.AutoSizeConfig;
+
 /**
  * 初始化相关参数
  */
@@ -42,6 +45,9 @@ public class MealInfoHelper {
         iwxapi = WXAPIFactory.createWXAPI(context, weChatAppId);
         // 将该app注册到微信
         iwxapi.registerApp(weChatAppId);
+
+        AutoSize.initCompatMultiProcess(context);
+        AutoSizeConfig.getInstance().setCustomFragment(true).setExcludeFontScale(true);
     }
 
     private static class Holder {

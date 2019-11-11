@@ -1,15 +1,8 @@
 package com.example.mealbuydemo;
-
-import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
 import com.cxsz.mealbuy.component.MealInfoHelper;
-
-import java.util.Locale;
-
-import me.jessyan.autosize.AutoSize;
-import me.jessyan.autosize.AutoSizeConfig;
 
 public class App extends Application {
     public static final String APP_ID_WEI_XIN = "wxf4c31c80fc070ed9";//微信登录appid
@@ -24,9 +17,6 @@ public class App extends Application {
         MealInfoHelper.getInstance().init(this, APP_ID_WEI_XIN, APP_ID, MEAL_SECRET, NONCE_STR);
         //初始化主机环境
         MealInfoHelper.getInstance().setHostIsDebug(false);
-
-        AutoSize.initCompatMultiProcess(this);
-        AutoSizeConfig.getInstance().setCustomFragment(true).setExcludeFontScale(true);
 
     }
 
